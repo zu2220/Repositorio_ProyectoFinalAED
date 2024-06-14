@@ -11,8 +11,9 @@ public class TablaHash {
     }
 
     public void insertar(Estudiante estudiante) {
-        Usuario auxUsuario= (Usuario) estudiante;
-        int indice = hash(Integer.parseInt(auxUsuario.getDNI()));
+        //Usuario auxUsuario= (Usuario) estudiante;
+       // String nombre= "";
+        int indice = hash(estudiante.getCodigo());
         if (tabla[indice] == null) {
             tabla[indice] = new Nodo(estudiante);
         } else {
@@ -24,13 +25,13 @@ public class TablaHash {
         }
     }
 
-    public Estudiante buscar(int dni) {
+    public Estudiante buscar(int codigo) {
         //Usuario auxUs=(Usuario)
-        int indice = hash(dni);
+        int indice = hash(codigo);
         Nodo nodo = tabla[indice];
         while (nodo!= null) {
             
-            if (Integer.parseInt(nodo.getEstudiante().getDNI())==dni) {
+            if (nodo.getEstudiante().getCodigo()==codigo) {
                 return nodo.getEstudiante();
             }
             nodo = nodo.getSiguiente();
@@ -41,5 +42,8 @@ public class TablaHash {
     public int hash(int clave) {
         return clave % tamaño;
     }
-
+    public Nodo[] getTabla (){
+     return tabla;
+    }
+    
 }

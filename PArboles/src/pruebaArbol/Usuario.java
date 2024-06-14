@@ -8,20 +8,17 @@ public abstract class Usuario  {
     private String Nombre;
     private String Apellido;
     private String DNI;
-    private String Email;
-    private String Contrasena;
+
     
 
     public Usuario() {
     }
 
-    public Usuario(String tipoUsuario, String Nombre, String Apellido, String DNI, String Email, String Contrasena) {
+    public Usuario(String tipoUsuario, String Nombre, String Apellido, String DNI) {
         this.tipoUsuario = tipoUsuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.DNI = DNI;
-        this.Email = Email;
-        this.Contrasena = Contrasena;
     }
 
     
@@ -49,22 +46,6 @@ public abstract class Usuario  {
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String Email) {
-        this.Email = Email;
-    }
-
-    public String getContrasena() {
-        return Contrasena;
-    }
-
-    public void setContrasena(String Contrasena) {
-        this.Contrasena = Contrasena;
     }
 
     public String getTipoUsuario() {
