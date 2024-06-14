@@ -3,7 +3,7 @@ package pruebaArbol;
 
 
 
-public class Usuario  {
+public abstract class Usuario  {
     private String tipoUsuario;
     private String Nombre;
     private String Apellido;

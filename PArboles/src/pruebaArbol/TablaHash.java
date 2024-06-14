@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package pruebaArbol;
 
-/**
- *
- * @author Hector
- */
 public class TablaHash {
     private int tamaño;
     private Nodo[] tabla;
@@ -32,11 +25,12 @@ public class TablaHash {
     }
 
     public Estudiante buscar(int dni) {
+        //Usuario auxUs=(Usuario)
         int indice = hash(dni);
         Nodo nodo = tabla[indice];
         while (nodo!= null) {
             
-            if (nodo.getEstudiante().getDni() == dni) {
+            if (Integer.parseInt(nodo.getEstudiante().getDNI())==dni) {
                 return nodo.getEstudiante();
             }
             nodo = nodo.getSiguiente();
@@ -44,29 +38,8 @@ public class TablaHash {
         return null;
     }
 
-    private int hash(int clave) {
+    public int hash(int clave) {
         return clave % tamaño;
     }
 
-    private class Nodo {
-        private Estudiante estudiante;
-        private Nodo siguiente;
-
-        public Nodo(Estudiante estudiante) {
-            this.estudiante = estudiante;
-            this.siguiente = null;
-        }
-
-        public Estudiante getEstudiante() {
-            return estudiante;
-        }
-
-        public Nodo getSiguiente() {
-            return siguiente;
-        }
-
-        public void setSiguiente(Nodo siguiente) {
-            this.siguiente = siguiente;
-        }
-    }
 }
