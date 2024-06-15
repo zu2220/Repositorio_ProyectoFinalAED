@@ -1,5 +1,7 @@
 package pruebaArbol;
 
+import tablaHash.Estudiante;
+
 public class ArbolEstudiante {
     
     private NodoArbolEstudiante raiz;

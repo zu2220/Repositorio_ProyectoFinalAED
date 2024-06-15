@@ -1,8 +1,11 @@
-package pruebaArbol;
+package tablaHash;
+
+import pruebaArbol.Usuario;
 
 public class Estudiante extends Usuario implements Comparable<Estudiante> {
-    private int codigo; // Cambiado a minúscula para seguir la convención de nombres en Java
-
+    private int codigo;
+    // Cambiado a minúscula para seguir la convención de nombres en Java
+    private int indice;
     public Estudiante() {
     }
 
@@ -33,6 +36,15 @@ public class Estudiante extends Usuario implements Comparable<Estudiante> {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+    
 
     @Override
     public int compareTo(Estudiante otroEstudiante) {

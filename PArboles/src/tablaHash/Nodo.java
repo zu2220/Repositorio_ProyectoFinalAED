@@ -1,5 +1,7 @@
 
-package pruebaArbol;
+package tablaHash;
+
+import tablaHash.Estudiante;
 
 
 public class Nodo {

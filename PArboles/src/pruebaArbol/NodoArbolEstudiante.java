@@ -1,6 +1,8 @@
 
 package pruebaArbol;
 
+import tablaHash.Estudiante;
+
 /**
  *
  * @author Hector
