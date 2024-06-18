@@ -45,12 +45,7 @@ public class NodoArbolEstudiante {
     
     
     
-    
-    public void insertar_preorden(){
-    
-   
-    
-    }
+  
     
     public void inorden(){
     
