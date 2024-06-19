@@ -34,17 +34,18 @@ public class ArbolBinario {
     }
     else{
         NodoArbol tem= raiz;
-        NodoArbol padre= tem;
+        NodoArbol padre;
     
         while(true){
+            padre= tem;
         
         if(dato < tem.getDato()){
             tem= tem.getIzquierda();
-        } 
+         
         if(tem == null){
             padre.setIzquierda(nuevo);
             return;
-        }
+        }}
         else{
             tem= tem.getDerecha();
             if(tem == null){
@@ -63,8 +64,8 @@ public class ArbolBinario {
            NodoArbol aux_raiz= ra;
            NodoArbol aux_izquierda=ra.getIzquierda();
            NodoArbol aux_derecha= ra.getDerecha();
-           txtArea.append(String.valueOf(aux_raiz.getDato()));
-           txtArea.append("\n");
+           txtArea.append(String.valueOf(aux_raiz.getDato())+ " ");
+      
            //txtArea.append(String.valueOf(aux_raiz.getIzquierda().getDato()));
            
            if(aux_izquierda!= null){
@@ -74,8 +75,31 @@ public class ArbolBinario {
               } else{
                   mostrar(txtArea, aux_derecha);
               }
+   
+            }else{
+               txtArea.append("\n");
                
-           } 
+           }
+          
     
     } 
+       public void recorrerYMostrarArbol(JTextArea area, NodoArbol raizP){
+        NodoArbol auxRaiz;
+        if(raizP==null){
+            auxRaiz=this.raiz;
+            
+        }else{
+            auxRaiz=raizP;
+        }
+        
+        area.append(String.valueOf(auxRaiz.getDato() + " "));
+        if(auxRaiz.getIzquierda()!=null){
+            area.append(String.valueOf(auxRaiz.getIzquierda().getDato()));
+            recorrerYMostrarArbol(area,auxRaiz.getIzquierda());
+        }else{
+            area.append(String.valueOf(auxRaiz.getDerecha().getDato()));
+            recorrerYMostrarArbol(area,auxRaiz.getDerecha());
+        }
+        
+    }
 }
