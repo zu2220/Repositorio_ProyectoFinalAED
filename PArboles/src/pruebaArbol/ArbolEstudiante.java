@@ -1,5 +1,7 @@
 package pruebaArbol;
 
+import tablaHash.Estudiante;
+
 public class ArbolEstudiante {
     
     private NodoArbolEstudiante raiz;
@@ -139,4 +141,38 @@ public class ArbolEstudiante {
     public boolean isEmpty() {
         return size == 0;
     }
+    
+      
+    public void insertar_preorden(Estudiante dato){
+        NodoArbolEstudiante nuevo = new NodoArbolEstudiante(dato);
+        if(raiz == null){
+            raiz= nuevo;     
+        } else{
+            NodoArbolEstudiante tem= raiz;
+            NodoArbolEstudiante padre;
+        }
+            while(true){
+                tem= padre;
+                if(tem< tem.getDato()){
+                    tem= tem.getIzq();
+                    if( tem == null){
+                        padre.setIzq(nuevo);
+                        return;
+                    
+                    } else{
+                        tem= tem.getDer();
+                        if(tem == null){
+                            padre.setDer(nuevo);
+                            return;
+                        
+                        }
+                    }
+                
+                
+                }
+            
+            
+            }
+    }
+    
 }

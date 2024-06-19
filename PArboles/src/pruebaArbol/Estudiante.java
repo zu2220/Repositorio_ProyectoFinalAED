@@ -1,40 +1,53 @@
+
 package pruebaArbol;
 
-public class Estudiante extends Usuario implements Comparable<Estudiante> {
-    private String numOrden; // Cambiado a minúscula para seguir la convención de nombres en Java
-    private int codigo; // Cambiado a minúscula para seguir la convención de nombres en Java
+public class Estudiante {
+    
+    private int edad;
+    private String nombre;
+    private String apellido;
+    private String dni;
 
-    public Estudiante() {
+    public Estudiante(int edad, String nombre, String apellido, String dni) {
+        this.edad = edad;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+    }
+    public Estudiante(){}
+
+    public int getEdad() {
+        return edad;
     }
 
-    public Estudiante(String numOrden) {
-        this.numOrden = numOrden;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public Estudiante(String numOrden, String tipoUsuario, String nombre, String apellido, String dni, String email, String contrasena) {
-        super(tipoUsuario, nombre, apellido, dni, email, contrasena);
-        this.numOrden = numOrden;
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public String getApellido() {
+        return apellido;
     }
 
-    public String getNumOrden() {
-        return numOrden;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public void setNumOrden(String numOrden) {
-        this.numOrden = numOrden;
+    public String getDni() {
+        return dni;
     }
 
-    @Override
-    public int compareTo(Estudiante otroEstudiante) {
-        // Compara los objetos Estudiante basados en el DNI
-        return this.getDNI().compareTo(otroEstudiante.getDNI());
+    public void setDni(String dni) {
+        this.dni = dni;
     }
+    
+    
+    
 }
