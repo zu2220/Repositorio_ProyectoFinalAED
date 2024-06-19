@@ -1,12 +1,13 @@
 
 package Clases;
 
-import ListasEnlazadas.ListaAula;
+import ListasEnlazadas.ListaCurso;
+import ListasEnlazadas.ListaSeccion;
 
 
 public class Docente extends Usuario {
-    private Curso cursoQueImparte;
-    private ListaAula aulas;
+    private ListaCurso cursoQueImparte;
+    private ListaSeccion secciones;
     public Docente() {
     }
 
@@ -14,22 +15,22 @@ public class Docente extends Usuario {
         super(tipoUsuario, Nombre, Apellido, DNI, Email, Contrasena);
     }
 
-    public Curso getCursoQueImparte() {
+    public ListaCurso getCursoQueImparte() {
         return cursoQueImparte;
     }
 
-    public void setCursoQueImparte(Curso cursoQueImparte) {
-        this.cursoQueImparte = cursoQueImparte;
+    public void agregarCurso(Curso nuevoCurso) {
+        cursoQueImparte.insertarAlFinal(nuevoCurso);
     }
 
     
 
-    public ListaAula getAulas() {
-        return aulas;
+    public ListaSeccion getSecciones() {
+        return secciones;
     }
 
-    public void setAulas(ListaAula aulas) {
-        this.aulas = aulas;
+    public void setSecciones(ListaSeccion secciones) {
+        this.secciones = secciones;
     }
     
     

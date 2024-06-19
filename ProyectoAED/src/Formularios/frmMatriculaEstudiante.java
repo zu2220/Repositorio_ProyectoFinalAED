@@ -1,25 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
 
-import ListasEnlazadas.ListaAula;
+import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author oscar
- */
 public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
     
     frmMenu menu;
     String valorCelda;
     ListaCurso LC;
-    ListaAula LA;
+    ListaSeccion LA;
     DefaultTableModel dtm,dtm2;
     Object o[]=new Object[2];
     Object o2[]=new Object[5];

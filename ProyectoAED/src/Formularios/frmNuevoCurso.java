@@ -198,10 +198,8 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         Curso cursoNuevo=new Curso();
         cursoNuevo.setNombreCurso(txtCursoNuevo.getText());
         
-        ListaDocente LD2=new ListaDocente();
-        LD2.insertarAlFinal(aux);
-        cursoNuevo.setDocentesACargo(LD2);
-        aux.setCursoQueImparte(cursoNuevo);
+        cursoNuevo.agregarDocente(aux);
+        aux.agregarCurso(cursoNuevo);
         
         
         LC.insertarAlFinal(cursoNuevo);

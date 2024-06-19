@@ -4,12 +4,12 @@ package ListasEnlazadas;
 import Clases.Seccion;
 
 
-public class NodoAula {
+public class NodoSeccion {
     private Seccion dato;
-    private NodoAula sig;
+    private NodoSeccion sig;
     private int posicion;
     
-    public NodoAula(Seccion dato){
+    public NodoSeccion(Seccion dato){
         this.dato=dato;
         sig=null;
     }
@@ -22,11 +22,11 @@ public class NodoAula {
         this.dato = dato;
     }
 
-    public NodoAula getSig() {
+    public NodoSeccion getSig() {
         return sig;
     }
 
-    public void setSig(NodoAula sig) {
+    public void setSig(NodoSeccion sig) {
         this.sig = sig;
     }
 

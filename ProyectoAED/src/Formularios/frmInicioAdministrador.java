@@ -108,7 +108,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
 
     private void btnCrearAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAulaActionPerformed
         // TODO add your handling code here:
-        frmNuevaAula nuevaAula=new frmNuevaAula(menu,this);
+        frmNuevaSeccion nuevaAula=new frmNuevaSeccion(menu,this);
         dispose();
         nuevaAula.setVisible(true);
     }//GEN-LAST:event_btnCrearAulaActionPerformed

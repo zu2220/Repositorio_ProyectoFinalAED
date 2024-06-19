@@ -4,21 +4,21 @@
  */
 package Formularios;
 
-import ListasEnlazadas.ListaAula;
+import ListasEnlazadas.ListaSeccion;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author oscar
  */
-public class frmVerAulasCreadas extends javax.swing.JFrame {
+public class frmVerSeccionesCreadas extends javax.swing.JFrame {
 
     DefaultTableModel dtm;
     Object[] o=new Object[3];
     frmMenu menu;
-    ListaAula LA;
-    frmNuevaAula nuevaAula;
-    public frmVerAulasCreadas(frmMenu menu, frmNuevaAula nuevaAula) {
+    ListaSeccion LA;
+    frmNuevaSeccion nuevaAula;
+    public frmVerSeccionesCreadas(frmMenu menu, frmNuevaSeccion nuevaAula) {
         initComponents();
         dtm=(DefaultTableModel)tablaAulasCreadas.getModel();
         this.menu=menu;
