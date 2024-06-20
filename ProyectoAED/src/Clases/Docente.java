@@ -6,8 +6,8 @@ import ListasEnlazadas.ListaSeccion;
 
 
 public class Docente extends Usuario {
-    private ListaCurso cursoQueImparte;
-    private ListaSeccion secciones;
+    private ListaCurso cursoQueImparte = new ListaCurso();
+    private ListaSeccion secciones = new ListaSeccion();
     public Docente() {
     }
 
@@ -16,23 +16,25 @@ public class Docente extends Usuario {
     }
 
     public ListaCurso getCursoQueImparte() {
-        return cursoQueImparte;
+        return this.cursoQueImparte;
     }
 
     public void agregarCurso(Curso nuevoCurso) {
-        cursoQueImparte.insertarAlFinal(nuevoCurso);
+        this.cursoQueImparte.insertarAlFinal(nuevoCurso);
     }
 
     
 
     public ListaSeccion getSecciones() {
-        return secciones;
+        return this.secciones;
     }
 
     public void setSecciones(ListaSeccion secciones) {
         this.secciones = secciones;
     }
     
-    
+    public void agregarSeccion(Seccion seccion){
+        this.secciones.insertarAlFinal(seccion);
+    }
     
 }

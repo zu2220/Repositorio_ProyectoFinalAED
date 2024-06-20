@@ -23,6 +23,12 @@ public class Curso {
         return docentesACargo;
     }
 
+    public void setDocentesACargo(ListaDocente docentesACargo) {
+        this.docentesACargo = docentesACargo;
+    }
+    
+    
+
     public void agregarDocente(Docente nuevoDocente) {
         docentesACargo.insertarAlFinal(nuevoDocente);
     }

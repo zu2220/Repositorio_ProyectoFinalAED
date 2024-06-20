@@ -17,13 +17,13 @@ public class frmVerSeccionesCreadas extends javax.swing.JFrame {
     Object[] o=new Object[3];
     frmMenu menu;
     ListaSeccion LA;
-    frmNuevaSeccion nuevaAula;
-    public frmVerSeccionesCreadas(frmMenu menu, frmNuevaSeccion nuevaAula) {
+    frmNuevaSeccion nuevaSeccion;
+    public frmVerSeccionesCreadas(frmMenu menu, frmNuevaSeccion nuevaSeccion) {
         initComponents();
-        dtm=(DefaultTableModel)tablaAulasCreadas.getModel();
+        dtm=(DefaultTableModel)tablaSeccionesCreadas.getModel();
         this.menu=menu;
         LA=menu.LA;
-        this.nuevaAula=nuevaAula;
+        this.nuevaSeccion=nuevaSeccion;
         
     }
 
@@ -38,7 +38,7 @@ public class frmVerSeccionesCreadas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaAulasCreadas = new javax.swing.JTable();
+        tablaSeccionesCreadas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnListar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
@@ -47,15 +47,15 @@ public class frmVerSeccionesCreadas extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaAulasCreadas.setModel(new javax.swing.table.DefaultTableModel(
+        tablaSeccionesCreadas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo aula", "Curso", "Profesor a cargo"
+                "Codigo sección", "Curso", "Profesor a cargo"
             }
         ));
-        jScrollPane1.setViewportView(tablaAulasCreadas);
+        jScrollPane1.setViewportView(tablaSeccionesCreadas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 521, 342));
 
@@ -105,7 +105,7 @@ public class frmVerSeccionesCreadas extends javax.swing.JFrame {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         dispose();
-        nuevaAula.setVisible(true);
+        nuevaSeccion.setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -114,22 +114,22 @@ public class frmVerSeccionesCreadas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaAulasCreadas;
+    private javax.swing.JTable tablaSeccionesCreadas;
     // End of variables declaration//GEN-END:variables
 
     private void limpiarTabla() {
-        for(int i=tablaAulasCreadas.getRowCount();i>=1;i--){
+        for(int i=tablaSeccionesCreadas.getRowCount();i>=1;i--){
             dtm.removeRow(i-1);
         }
     }
 
     private void mostrarLista() {
         for(int i=0;i<LA.getSize();i++){
-            String codigoAula=LA.getNodoByIndex(i).getDato().getCodigoAula();
+            String codigoSeccion=LA.getNodoByIndex(i).getDato().getCodigoSeccion();
             String curso=LA.getNodoByIndex(i).getDato().getCurso().getNombreCurso();
             String profesor=LA.getNodoByIndex(i).getDato().getDocenteACargo().getNombre();
             
-            o[0]=codigoAula;
+            o[0]=codigoSeccion;
             o[1]=curso;
             o[2]=profesor;
             dtm.addRow(o);

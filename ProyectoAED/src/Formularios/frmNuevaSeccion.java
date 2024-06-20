@@ -9,6 +9,7 @@ import Clases.Curso;
 import Clases.Docente;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
+import ListasEnlazadas.ListaDocente;
 import ListasEnlazadas.NodoCurso;
 import ListasEnlazadas.NodoDocente;
 
@@ -48,10 +49,10 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cbxCurso = new javax.swing.JComboBox<>();
-        txtCodigoAula = new javax.swing.JTextField();
+        txtCodigoSeccion = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cbxDocente = new javax.swing.JComboBox<>();
-        btnCrearAula = new javax.swing.JButton();
+        btnCrearSeccion = new javax.swing.JButton();
         btnVerSeccionesCreadas = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -63,7 +64,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nuevas Aulas");
+        jLabel1.setText("Nuevas Secciones");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         jLabel2.setText("Código");
@@ -79,27 +80,27 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(cbxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 150, -1));
 
-        txtCodigoAula.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoAulaActionPerformed(evt);
+                txtCodigoSeccionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCodigoAula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 130, -1));
+        jPanel1.add(txtCodigoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 130, -1));
 
         jLabel4.setText("Docente");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
         jPanel1.add(cbxDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 150, -1));
 
-        btnCrearAula.setText("Crear aula");
-        btnCrearAula.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearSeccion.setText("Crear sección");
+        btnCrearSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearAulaActionPerformed(evt);
+                btnCrearSeccionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearAula, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 100, -1));
+        jPanel1.add(btnCrearSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 120, -1));
 
-        btnVerSeccionesCreadas.setText("Ver aulas creadas");
+        btnVerSeccionesCreadas.setText("Ver secciones creadas");
         btnVerSeccionesCreadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerSeccionesCreadasActionPerformed(evt);
@@ -151,9 +152,9 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
       llenarCbxDocente();
     }//GEN-LAST:event_cbxCursoActionPerformed
 
-    private void btnCrearAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAulaActionPerformed
+    private void btnCrearSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSeccionActionPerformed
         // TODO add your handling code here:
-        String codigoSeccion=txtCodigoAula.getText();
+        String codigoSeccion=txtCodigoSeccion.getText();
         String nombreCurso=cbxCurso.getSelectedItem().toString();
         String docenteACargo=cbxDocente.getSelectedItem().toString();
         
@@ -165,9 +166,9 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
             if(auxNodoDocente.buscarDocente(docenteACargo).getNombre().equalsIgnoreCase(docenteACargo)){
                 Docente auxDocente=auxNodoDocente.buscarDocente(docenteACargo);
                 Seccion nuevaSeccion=new Seccion(codigoSeccion,auxCurso,auxDocente);
-                ListaSeccion seccionesDocente = new ListaSeccion();
-                seccionesDocente.insertarAlFinal(nuevaSeccion);
-                auxDocente.setSecciones(seccionesDocente);
+                //ListaSeccion seccionesDocente = new ListaSeccion();
+                //seccionesDocente.insertarAlFinal(nuevaSeccion);
+                auxDocente.agregarSeccion(nuevaSeccion);
                 LA.insertarAlFinal(nuevaSeccion);
             }
         }
@@ -185,7 +186,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         Seccion aulaNueva=new Seccion(codigoAula,nombreCurso,docenteACargo);
         LA.insertarAlFinal(aulaNueva);*/
         
-    }//GEN-LAST:event_btnCrearAulaActionPerformed
+    }//GEN-LAST:event_btnCrearSeccionActionPerformed
 
     private void btnVerSeccionesCreadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSeccionesCreadasActionPerformed
         // TODO add your handling code here:
@@ -195,9 +196,9 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnVerSeccionesCreadasActionPerformed
 
-    private void txtCodigoAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoAulaActionPerformed
+    private void txtCodigoSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoSeccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoAulaActionPerformed
+    }//GEN-LAST:event_txtCodigoSeccionActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         
@@ -212,7 +213,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearAula;
+    private javax.swing.JButton btnCrearSeccion;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerSeccionesCreadas;
     private javax.swing.JComboBox<String> cbxCurso;
@@ -226,7 +227,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCodigoAula;
+    private javax.swing.JTextField txtCodigoSeccion;
     // End of variables declaration//GEN-END:variables
 
     private void llenarCbxCurso() {
@@ -241,8 +242,9 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         //Curso auxCurso=new Curso();
         for(int i=0;i<LC.getSize();i++){
             if(cursoCapturado.equalsIgnoreCase(LC.getNodoByIndex(i).getDato().getNombreCurso())){
-                for(int j=0;j<LC.getNodoByIndex(i).getDato().getDocentesACargo().getSize();j++){
-                    cbxDocente.addItem(LC.getNodoByIndex(i).getDato().getDocentesACargo().getNodoByIndex(j).getDato().getNombre());
+                ListaDocente auxLD = LC.getNodoByIndex(i).getDato().getDocentesACargo();
+                for(int j=0;j<auxLD.getSize();j++){
+                    cbxDocente.addItem(auxLD.getNodoByIndex(j).getDato().getNombre());
                 }
             }
         }
