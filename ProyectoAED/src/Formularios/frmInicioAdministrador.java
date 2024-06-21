@@ -34,7 +34,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnCrearCurso = new javax.swing.JButton();
-        btnCrearAula = new javax.swing.JButton();
+        btnCrearSeccion = new javax.swing.JButton();
         btnRegistrarNuevoU = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
 
@@ -53,13 +53,13 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
         });
         jPanel1.add(btnCrearCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 155, -1));
 
-        btnCrearAula.setText("Crear aula");
-        btnCrearAula.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearSeccion.setText("Crear sección");
+        btnCrearSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearAulaActionPerformed(evt);
+                btnCrearSeccionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearAula, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 155, -1));
+        jPanel1.add(btnCrearSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 155, -1));
 
         btnRegistrarNuevoU.setText("Registrar nuevo usuario");
         btnRegistrarNuevoU.addActionListener(new java.awt.event.ActionListener() {
@@ -106,12 +106,12 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
-    private void btnCrearAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAulaActionPerformed
+    private void btnCrearSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSeccionActionPerformed
         // TODO add your handling code here:
-        frmNuevaAula nuevaAula=new frmNuevaAula(menu,this);
+        frmNuevaSeccion nuevaSeccion=new frmNuevaSeccion(menu,this);
         dispose();
-        nuevaAula.setVisible(true);
-    }//GEN-LAST:event_btnCrearAulaActionPerformed
+        nuevaSeccion.setVisible(true);
+    }//GEN-LAST:event_btnCrearSeccionActionPerformed
 
     private void btnRegistrarNuevoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoUActionPerformed
         // TODO add your handling code here:
@@ -126,8 +126,8 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnCrearAula;
     private javax.swing.JButton btnCrearCurso;
+    private javax.swing.JButton btnCrearSeccion;
     private javax.swing.JButton btnRegistrarNuevoU;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

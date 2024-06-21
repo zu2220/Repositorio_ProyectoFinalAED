@@ -5,6 +5,7 @@
 package Formularios;
 
 
+import Clases.Usuario;
 import ListasEnlazadas.ListaUsuario;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -21,6 +22,7 @@ public class frmInicioSesion extends javax.swing.JFrame {
     ListaUsuario LU;
     frmMenu menu;
     String tipoUsuario;
+    Usuario us;
     public frmInicioSesion(ListaUsuario LU, frmMenu menu) {
         initComponents();
         this.LU=LU;
@@ -42,6 +44,7 @@ public class frmInicioSesion extends javax.swing.JFrame {
         txtContrasena = new javax.swing.JPasswordField();
         btnIniciarSesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +67,13 @@ public class frmInicioSesion extends javax.swing.JFrame {
 
         jLabel3.setText("INICIO DE SESIÓN");
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +91,9 @@ public class frmInicioSesion extends javax.swing.JFrame {
                             .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
-                                .addComponent(btnIniciarSesion))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(jLabel3)))
@@ -102,7 +114,9 @@ public class frmInicioSesion extends javax.swing.JFrame {
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addComponent(btnIniciarSesion)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnRegresar)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,7 +133,7 @@ public class frmInicioSesion extends javax.swing.JFrame {
                 MIS.setVisible(true);
             }else{
                 if(tipoUsuario.equalsIgnoreCase("Docente")){
-                frmInicioDocente MIS=new frmInicioDocente();
+                frmInicioDocente MIS=new frmInicioDocente(LU,menu,this);
                 dispose();
                 MIS.setVisible(true);
                 } else{
@@ -140,6 +154,11 @@ public class frmInicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        dispose();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -147,6 +166,7 @@ public class frmInicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -154,13 +174,14 @@ public class frmInicioSesion extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     // End of variables declaration//GEN-END:variables
 
-    private boolean verificarCredenciales(String correo, String contrasena) {
+    public boolean verificarCredenciales(String correo, String contrasena) {
         
         boolean flag=false;
         
         for(int i=0;i<LU.getSize();i++){
             if(LU.getNodoByIndex(i).getDato().getEmail().equalsIgnoreCase(correo) && LU.getNodoByIndex(i).getDato().getContrasena().equalsIgnoreCase(contrasena)){
             flag=true;
+            us = LU.getNodoByIndex(i).getDato();
             tipoUsuario=LU.getNodoByIndex(i).getDato().getTipoUsuario();
             }   
 

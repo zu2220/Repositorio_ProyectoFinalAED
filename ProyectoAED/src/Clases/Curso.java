@@ -28,4 +28,10 @@ public class Curso {
     }
     
     
+
+    public void agregarDocente(Docente nuevoDocente) {
+        docentesACargo.insertarAlFinal(nuevoDocente);
+    }
+    
+    
 }
