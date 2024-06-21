@@ -1,7 +1,7 @@
 
 package tablaHash;
 
-import tablaHash.Estudiante;
+import tablaHash.EstudianteTH;
 
 public class TablaHash {
     private int tamaño;
@@ -12,7 +12,7 @@ public class TablaHash {
         this.tabla = new Nodo[tamaño];
     }
 
-    public void insertar(Estudiante estudiante) {
+    public void insertar(EstudianteTH estudiante) {
         //Usuario auxUsuario= (Usuario) estudiante;
        // String nombre= "";
         int indice = hash(estudiante.getCodigo());
@@ -34,7 +34,7 @@ public class TablaHash {
         }
     }
 
-    public Estudiante buscar(int codigo) {
+    public EstudianteTH buscar(int codigo) {
         //Usuario auxUs=(Usuario)
         int indice = hash(codigo);
         Nodo nodo = tabla[indice];
