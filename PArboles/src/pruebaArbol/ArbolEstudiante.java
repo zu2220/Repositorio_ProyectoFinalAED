@@ -104,9 +104,9 @@ public class ArbolEstudiante {
         if (nodo == null) {
             return null;
         }
-        if (dato.compareTo(nodo.getDato()) < 0) {
+        if (dato.getEdad()<(nodo.getDato().getEdad())) {
             nodo.setIzquierda(eliminarNodo(nodo.getIzquierda(), dato));
-        } else if (dato.compareTo(nodo.getDato()) > 0) {
+        } else if (dato.getEdad()==(nodo.getDato().getEdad())) {
             nodo.setDerecha(eliminarNodo(nodo.getDerecha(), dato));
         } else {
             // Nodo con un solo hijo o sin hijos
@@ -152,16 +152,16 @@ public class ArbolEstudiante {
             NodoArbolEstudiante padre;
               while(true){
                 padre= tem;
-                if(nuevo.getDato().< tem.getDato()){
-                    tem= tem.getIzq();
+                if(nuevo.getDato().getEdad()< tem.getDato().getEdad()){
+                    tem= tem.getIzquierda();
                     if( tem == null){
-                        padre.setIzq(nuevo);
+                        padre.setIzquierda(nuevo);
                         return;
                     
                     } else{
-                        tem= tem.getDer();
+                        tem= tem.getDerecha();
                         if(tem == null){
-                            padre.setDer(nuevo);
+                            padre.setDerecha(nuevo);
                             return;
                         
                         }
