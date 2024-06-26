@@ -4,6 +4,7 @@
  */
 package Formularios;
 
+import Clases.Estudiante;
 import ListasEnlazadas.ListaAula;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
     DefaultTableModel dtm,dtm2;
     Object o[]=new Object[2];
     Object o2[]=new Object[5];
+    Estudiante est;
     public frmMatriculaEstudiante(frmMenu menu) {
         initComponents();
         this.menu=menu;
@@ -65,7 +67,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 btnSeleccionarCursoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSeleccionarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, -1));
+        jPanel2.add(btnSeleccionarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
 
         tablaCursosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,7 +120,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 btnVerCursosDisponiblesActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
         tablaAulas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,6 +187,15 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
     private void btnSeleccionarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSeccionActionPerformed
         // TODO add your handling code here:
+        int x=tablaAulas.getSelectedRow();
+        
+        if(tablaAulas.isRowSelected(x)){
+            String codigo=dtm.getValueAt(x, 2).toString();
+            if(LA.buscarSeccion(codigo)==null)
+                JOptionPane.showMessageDialog(this, "Error. No se pudo inscribir en la seccion");
+            else
+                est.insertarSecciones(LA.buscarSeccion(codigo));
+        }
     }//GEN-LAST:event_btnSeleccionarSeccionActionPerformed
 
     /**

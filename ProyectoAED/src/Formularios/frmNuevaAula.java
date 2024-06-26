@@ -23,6 +23,7 @@ public class frmNuevaAula extends javax.swing.JFrame {
     ListaCurso LC;
     ListaAula LA;
     frmInicioAdministrador IAdm;
+    Seccion auxSeccion=new Seccion();
     
     public frmNuevaAula(frmMenu menu,frmInicioAdministrador IAdm) {
         initComponents();
@@ -57,8 +58,12 @@ public class frmNuevaAula extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jcbLunes = new javax.swing.JCheckBox();
+        jcbMartes = new javax.swing.JCheckBox();
+        jcbMiercoles = new javax.swing.JCheckBox();
+        jcbJueves = new javax.swing.JCheckBox();
+        jcbViernes = new javax.swing.JCheckBox();
+        jcbSabado = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,11 +127,58 @@ public class frmNuevaAula extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
 
-        jCheckBox1.setText("Lunes");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+        jcbLunes.setText("Lunes");
+        jcbLunes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbLunesItemStateChanged(evt);
+            }
+        });
+        jcbLunes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbLunesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcbLunes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-        jCheckBox2.setText("Martes");
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+        jcbMartes.setText("Martes");
+        jcbMartes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jcbMartesStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcbMartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        jcbMiercoles.setText("Miercoles");
+        jcbMiercoles.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jcbMiercolesStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcbMiercoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+
+        jcbJueves.setText("Jueves");
+        jcbJueves.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jcbJuevesStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcbJueves, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+
+        jcbViernes.setText("Viernes");
+        jcbViernes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jcbViernesStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcbViernes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
+
+        jcbSabado.setText("Sabado");
+        jcbSabado.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jcbSabadoStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcbSabado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,6 +218,9 @@ public class frmNuevaAula extends javax.swing.JFrame {
             if(auxNodoDocente.buscarDocente(docenteACargo).getNombre().equalsIgnoreCase(docenteACargo)){
                 Docente auxDocente=auxNodoDocente.buscarDocente(docenteACargo);
                 Seccion nuevaAula=new Seccion(codigoAula,auxCurso,auxDocente);
+                for(int i=0;i<7;i++){
+                    nuevaAula.insertarHDia(auxSeccion.getHorario(i), i);
+                }
                 LA.insertarAlFinal(nuevaAula);
             }
         }
@@ -204,6 +259,64 @@ public class frmNuevaAula extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    private void jcbLunesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbLunesItemStateChanged
+        // TODO add your handling code here:
+        if(jcbLunes.isSelected()){
+            String lunes=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(lunes, 0);
+            JOptionPane.showMessageDialog(this, lunes);
+        }
+    }//GEN-LAST:event_jcbLunesItemStateChanged
+
+    private void jcbLunesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbLunesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbLunesActionPerformed
+
+    private void jcbMartesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbMartesStateChanged
+        // TODO add your handling code here:
+        if(jcbMartes.isSelected()){
+            String martes=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(martes, 1);
+            JOptionPane.showMessageDialog(this, martes);
+        }
+    }//GEN-LAST:event_jcbMartesStateChanged
+
+    private void jcbMiercolesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbMiercolesStateChanged
+        // TODO add your handling code here:
+        if(jcbMiercoles.isSelected()){
+            String miercoles=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(miercoles, 2);
+            JOptionPane.showMessageDialog(this, miercoles);
+        }
+    }//GEN-LAST:event_jcbMiercolesStateChanged
+
+    private void jcbJuevesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbJuevesStateChanged
+        // TODO add your handling code here:
+        if(jcbLunes.isSelected()){
+            String jueves=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(jueves, 3);
+            JOptionPane.showMessageDialog(this, jueves);
+        }
+    }//GEN-LAST:event_jcbJuevesStateChanged
+
+    private void jcbViernesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbViernesStateChanged
+        // TODO add your handling code here:
+        if(jcbViernes.isSelected()){
+            String viernes=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(viernes, 4);
+            JOptionPane.showMessageDialog(this, viernes);
+        }
+    }//GEN-LAST:event_jcbViernesStateChanged
+
+    private void jcbSabadoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbSabadoStateChanged
+        // TODO add your handling code here:
+        if(jcbLunes.isSelected()){
+            String sabado=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(sabado, 5);
+            JOptionPane.showMessageDialog(this, sabado);
+        }
+    }//GEN-LAST:event_jcbSabadoStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -215,8 +328,6 @@ public class frmNuevaAula extends javax.swing.JFrame {
     private javax.swing.JButton btnVerAulasCreadas;
     private javax.swing.JComboBox<String> cbxCurso;
     private javax.swing.JComboBox<String> cbxDocente;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -224,6 +335,12 @@ public class frmNuevaAula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox jcbJueves;
+    private javax.swing.JCheckBox jcbLunes;
+    private javax.swing.JCheckBox jcbMartes;
+    private javax.swing.JCheckBox jcbMiercoles;
+    private javax.swing.JCheckBox jcbSabado;
+    private javax.swing.JCheckBox jcbViernes;
     private javax.swing.JTextField txtCodigoAula;
     // End of variables declaration//GEN-END:variables
 

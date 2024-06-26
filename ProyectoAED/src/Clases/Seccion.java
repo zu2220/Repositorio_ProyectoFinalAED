@@ -8,7 +8,7 @@ public class Seccion {
     private String codigoAula;
     private Curso curso;
     private Docente docenteACargo;
-    private int[][] matrizHorario=new int[1][6];
+    private String[] horario=new String[6];
     private ListaEstudiante LE;
 
     public Seccion() {
@@ -52,14 +52,17 @@ public class Seccion {
         this.LE = LE;
     }
 
-    public int[][] getMatrizHorario() {
-        return matrizHorario;
+    public String getHorario(int i) {
+        return this.horario[i];
     }
 
-    public void setMatrizHorario(int[][] matrizHorario) {
-        this.matrizHorario = matrizHorario;
+    public void setHorario(String[] horario) {
+        this.horario = horario;
     }
-    
+
+   public void insertarHDia(String hora,int p){
+       this.horario[p]=hora;
+   }
     
     
 }
