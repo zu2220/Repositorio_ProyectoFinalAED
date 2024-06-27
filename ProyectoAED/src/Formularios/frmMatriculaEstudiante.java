@@ -1,37 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
 
-import Clases.Estudiante;
-import ListasEnlazadas.ListaAula;
+
+import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author oscar
- */
 public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
     
     frmMenu menu;
     String valorCelda;
     ListaCurso LC;
-    ListaAula LA;
+    ListaSeccion LA;
     DefaultTableModel dtm,dtm2;
     Object o[]=new Object[2];
     Object o2[]=new Object[5];
-    Estudiante est;
+  
     public frmMatriculaEstudiante(frmMenu menu) {
         initComponents();
         this.menu=menu;
         LC=menu.LC;
         LA=menu.LA;
         dtm=(DefaultTableModel)tablaCursosDisponibles.getModel();
-        dtm2=(DefaultTableModel)tablaAulas.getModel();
+        dtm2=(DefaultTableModel)tablaSecciones.getModel();
        // this.MIS=MIS;
     }
 
@@ -54,7 +46,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnVerCursosDisponibles = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaAulas = new javax.swing.JTable();
+        tablaSecciones = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,7 +114,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         });
         jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
-        tablaAulas.setModel(new javax.swing.table.DefaultTableModel(
+        tablaSecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -130,7 +122,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 "Curso", "Codigo", "Profesor a cargo", "Dias", "Horas"
             }
         ));
-        jScrollPane1.setViewportView(tablaAulas);
+        jScrollPane1.setViewportView(tablaSecciones);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, -1, 209));
 
@@ -166,7 +158,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         if(aux==true){
             valorCelda=tablaCursosDisponibles.getValueAt(tablaCursosDisponibles.getSelectedRow(), tablaCursosDisponibles.getSelectedColumn()).toString();
         }
-        mostrarAulasSegunCriterio(valorCelda);
+        mostrarSeccionesSegunCriterio(valorCelda);
         
     }//GEN-LAST:event_tablaCursosDisponiblesMouseClicked
 
@@ -187,14 +179,12 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
     private void btnSeleccionarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSeccionActionPerformed
         // TODO add your handling code here:
-        int x=tablaAulas.getSelectedRow();
+        int x=tablaSecciones.getSelectedRow();
         
-        if(tablaAulas.isRowSelected(x)){
+        if(tablaSecciones.isRowSelected(x)){
             String codigo=dtm.getValueAt(x, 2).toString();
             if(LA.buscarSeccion(codigo)==null)
                 JOptionPane.showMessageDialog(this, "Error. No se pudo inscribir en la seccion");
-            else
-                est.insertarSecciones(LA.buscarSeccion(codigo));
         }
     }//GEN-LAST:event_btnSeleccionarSeccionActionPerformed
 
@@ -214,8 +204,8 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tablaAulas;
     private javax.swing.JTable tablaCursosDisponibles;
+    private javax.swing.JTable tablaSecciones;
     // End of variables declaration//GEN-END:variables
 
     private void limpiarTabla() {
@@ -232,12 +222,12 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarAulasSegunCriterio(String valorCelda) {
-        limpiarTablaAulas();
+    private void mostrarSeccionesSegunCriterio(String valorCelda) {
+        limpiarTablaSecciones();
         for(int i=0;i<LA.getSize();i++){
             if(LA.getNodoByIndex(i).getDato().getCurso().getNombreCurso().equalsIgnoreCase(valorCelda)){
                 o2[0]=LA.getNodoByIndex(i).getDato().getCurso().getNombreCurso();
-                o2[1]=LA.getNodoByIndex(i).getDato().getCodigoAula();
+                o2[1]=LA.getNodoByIndex(i).getDato().getCodigoSeccion();
                 o2[2]=LA.getNodoByIndex(i).getDato().getDocenteACargo().getNombre();
                 o2[3]=null;
                 o2[4]=null;
@@ -246,9 +236,11 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         }
     }
 
-    private void limpiarTablaAulas() {
+    private void limpiarTablaSecciones() {
         for(int i=dtm2.getRowCount();i>=1;i--){
             dtm.removeRow(i-1);
         }
     }
-}
+   } 
+
+

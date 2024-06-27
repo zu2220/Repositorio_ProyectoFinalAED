@@ -6,6 +6,8 @@ import Clases.Docente;
 import ListasEnlazadas.ListaCurso;
 import ListasEnlazadas.ListaDocente;
 import ListasEnlazadas.NodoDocente;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -18,17 +20,18 @@ public class frmNuevoCurso extends javax.swing.JFrame {
     ListaCurso LC;
     frmMenu menu;
     frmInicioAdministrador IAd;
-    ListaDocente LD;
+    ListaDocente auxLD;
     String docenteACargo;
     DefaultTableModel dtm;
     Object[] o=new Object[2];
+    ListaDocente ListD = new ListaDocente();
     
     public frmNuevoCurso(ListaCurso LC,frmMenu menu,frmInicioAdministrador IAd) {
         initComponents();
         dtm=(DefaultTableModel)tablaCursos.getModel();
         this.menu=menu;
         this.IAd=IAd;
-        this.LD=menu.LD;
+        this.auxLD=menu.LD;
         this.LC=LC;
         agregarElementosAlCbx();
     }
@@ -48,7 +51,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         txtCursoNuevo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cbxDocenteACargo = new javax.swing.JComboBox<>();
-        btnCrear = new javax.swing.JButton();
+        btnCrearCurso = new javax.swing.JButton();
         panelMostrarCursos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCursos = new javax.swing.JTable();
@@ -57,6 +60,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         btnOrdenar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        btnAgregarDocente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,13 +83,13 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         });
         jPanel1.add(cbxDocenteACargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 168, -1));
 
-        btnCrear.setText("Crear curso");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearCurso.setText("Crear curso");
+        btnCrearCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
+                btnCrearCursoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        jPanel1.add(btnCrearCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 120, -1));
 
         panelMostrarCursos.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -158,6 +162,14 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
+        btnAgregarDocente.setText("Agregar Docente");
+        btnAgregarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarDocenteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,35 +194,25 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cbxDocenteACargoActionPerformed
 
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+    private void btnCrearCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCursoActionPerformed
         // TODO add your handling code here:
-        docenteACargo=cbxDocenteACargo.getSelectedItem().toString();
-        Docente aux=new Docente();
-        for(int i=0;i<LD.getSize();i++){
-            if(docenteACargo.equalsIgnoreCase(LD.getNodoByIndex(i).getDato().getNombre())){
-                aux=LD.getNodoByIndex(i).getDato();
-                break;
+        
+        if(ListD==null){
+            JOptionPane.showMessageDialog(this, "Agregar docentes");
+        }else{
+            Curso cursoNuevo=new Curso();
+            cursoNuevo.setNombreCurso(txtCursoNuevo.getText());
+
+            cursoNuevo.setDocentesACargo(auxLD);
+
+            for (int i = 0; i < ListD.getSize(); i++) {
+                ListD.getNodoByIndex(i).getDato().agregarCurso(cursoNuevo);
             }
-        }
-        
-        
-       
-        Curso cursoNuevo=new Curso();
-        cursoNuevo.setNombreCurso(txtCursoNuevo.getText());
-        
-        ListaDocente LD2=new ListaDocente();
-        LD2.insertarAlFinal(aux);
-        cursoNuevo.setDocentesACargo(LD2);
-        aux.setCursoQueImparte(cursoNuevo);
-        
-        
-        LC.insertarAlFinal(cursoNuevo);
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnCrearActionPerformed
+
+
+            LC.insertarAlFinal(cursoNuevo);
+        } 
+    }//GEN-LAST:event_btnCrearCursoActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
@@ -225,10 +227,22 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnAgregarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDocenteActionPerformed
+        docenteACargo=cbxDocenteACargo.getSelectedItem().toString();
+        Docente aux=new Docente();
+        for(int i=0;i<auxLD.getSize();i++){
+            if(docenteACargo.equalsIgnoreCase(auxLD.getNodoByIndex(i).getDato().getNombre())){
+                aux=auxLD.getNodoByIndex(i).getDato();
+                ListD.insertarAlFinal(aux);
+                break;
+            }
+        }
+    }//GEN-LAST:event_btnAgregarDocenteActionPerformed
     private void agregarElementosAlCbx(){
-        for(int i=0;i<LD.getSize();i++){
+        for(int i=0;i<auxLD.getSize();i++){
             
-        cbxDocenteACargo.addItem(LD.getNodoByIndex(i).getDato().getNombre());
+        cbxDocenteACargo.addItem(auxLD.getNodoByIndex(i).getDato().getNombre());
         }
     }
     /**
@@ -237,7 +251,8 @@ public class frmNuevoCurso extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnAgregarDocente;
+    private javax.swing.JButton btnCrearCurso;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnRegresar;

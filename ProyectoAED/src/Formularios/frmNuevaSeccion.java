@@ -7,8 +7,9 @@ package Formularios;
 import Clases.Seccion;
 import Clases.Curso;
 import Clases.Docente;
-import ListasEnlazadas.ListaAula;
+import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
+import ListasEnlazadas.ListaDocente;
 import ListasEnlazadas.NodoCurso;
 import ListasEnlazadas.NodoDocente;
 import javax.swing.JOptionPane;
@@ -17,15 +18,15 @@ import javax.swing.JOptionPane;
  *
  * @author oscar
  */
-public class frmNuevaAula extends javax.swing.JFrame {
+public class frmNuevaSeccion extends javax.swing.JFrame {
 
     frmMenu menu;
     ListaCurso LC;
-    ListaAula LA;
+    ListaSeccion LA;
     frmInicioAdministrador IAdm;
     Seccion auxSeccion=new Seccion();
     
-    public frmNuevaAula(frmMenu menu,frmInicioAdministrador IAdm) {
+    public frmNuevaSeccion(frmMenu menu,frmInicioAdministrador IAdm) {
         initComponents();
         this.menu=menu;
         LC=menu.LC;
@@ -50,11 +51,10 @@ public class frmNuevaAula extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cbxCurso = new javax.swing.JComboBox<>();
-        txtCodigoAula = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cbxDocente = new javax.swing.JComboBox<>();
-        btnCrearAula = new javax.swing.JButton();
-        btnVerAulasCreadas = new javax.swing.JButton();
+        btnCrearSeccion = new javax.swing.JButton();
+        btnVerSeccionesCreadas = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -64,12 +64,13 @@ public class frmNuevaAula extends javax.swing.JFrame {
         jcbJueves = new javax.swing.JCheckBox();
         jcbViernes = new javax.swing.JCheckBox();
         jcbSabado = new javax.swing.JCheckBox();
+        txtCodigoSeccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nuevas Aulas");
+        jLabel1.setText("Nuevas Secciones");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         jLabel2.setText("Código");
@@ -85,33 +86,26 @@ public class frmNuevaAula extends javax.swing.JFrame {
         });
         jPanel1.add(cbxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 150, -1));
 
-        txtCodigoAula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoAulaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCodigoAula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 130, -1));
-
         jLabel4.setText("Docente");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
         jPanel1.add(cbxDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 150, -1));
 
-        btnCrearAula.setText("Crear aula");
-        btnCrearAula.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearSeccion.setText("Crear sección");
+        btnCrearSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearAulaActionPerformed(evt);
+                btnCrearSeccionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearAula, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 100, -1));
+        jPanel1.add(btnCrearSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 120, -1));
 
-        btnVerAulasCreadas.setText("Ver aulas creadas");
-        btnVerAulasCreadas.addActionListener(new java.awt.event.ActionListener() {
+        btnVerSeccionesCreadas.setText("Ver secciones creadas");
+        btnVerSeccionesCreadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerAulasCreadasActionPerformed(evt);
+                btnVerSeccionesCreadasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVerAulasCreadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
+        jPanel1.add(btnVerSeccionesCreadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +173,7 @@ public class frmNuevaAula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jcbSabado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
+        jPanel1.add(txtCodigoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 140, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,9 +199,9 @@ public class frmNuevaAula extends javax.swing.JFrame {
       llenarCbxDocente();
     }//GEN-LAST:event_cbxCursoActionPerformed
 
-    private void btnCrearAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAulaActionPerformed
+    private void btnCrearSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSeccionActionPerformed
         // TODO add your handling code here:
-        String codigoAula=txtCodigoAula.getText();
+        String codigoSeccion=txtCodigoSeccion.getText();
         String nombreCurso=cbxCurso.getSelectedItem().toString();
         String docenteACargo=cbxDocente.getSelectedItem().toString();
         
@@ -217,15 +212,16 @@ public class frmNuevaAula extends javax.swing.JFrame {
             NodoDocente auxNodoDocente=auxCurso.getDocentesACargo().getInicio();
             if(auxNodoDocente.buscarDocente(docenteACargo).getNombre().equalsIgnoreCase(docenteACargo)){
                 Docente auxDocente=auxNodoDocente.buscarDocente(docenteACargo);
-                Seccion nuevaAula=new Seccion(codigoAula,auxCurso,auxDocente);
+                Seccion nuevaSeccion=new Seccion(codigoSeccion,auxCurso,auxDocente);
                 for(int i=0;i<7;i++){
-                    nuevaAula.insertarHDia(auxSeccion.getHorario(i), i);
+                    nuevaSeccion.insertarHDia(auxSeccion.getHorario(i), i);
                 }
-                LA.insertarAlFinal(nuevaAula);
+                LA.insertarAlFinal(nuevaSeccion);
+
             }
         }
 
-        Docente auxDocente=buscarDocente(docenteACargo);
+        //Docente auxDocente=buscarDocente(docenteACargo);
         
         
         
@@ -238,19 +234,15 @@ public class frmNuevaAula extends javax.swing.JFrame {
         Seccion aulaNueva=new Seccion(codigoAula,nombreCurso,docenteACargo);
         LA.insertarAlFinal(aulaNueva);*/
         
-    }//GEN-LAST:event_btnCrearAulaActionPerformed
+    }//GEN-LAST:event_btnCrearSeccionActionPerformed
 
-    private void btnVerAulasCreadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAulasCreadasActionPerformed
+    private void btnVerSeccionesCreadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSeccionesCreadasActionPerformed
         // TODO add your handling code here:
-        frmVerAulasCreadas verAC=new frmVerAulasCreadas(menu,this);
+        frmVerSeccionesCreadas verAC=new frmVerSeccionesCreadas(menu,this);
         dispose();
         verAC.setVisible(true);
         
-    }//GEN-LAST:event_btnVerAulasCreadasActionPerformed
-
-    private void txtCodigoAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoAulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoAulaActionPerformed
+    }//GEN-LAST:event_btnVerSeccionesCreadasActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         
@@ -323,9 +315,9 @@ public class frmNuevaAula extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearAula;
+    private javax.swing.JButton btnCrearSeccion;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnVerAulasCreadas;
+    private javax.swing.JButton btnVerSeccionesCreadas;
     private javax.swing.JComboBox<String> cbxCurso;
     private javax.swing.JComboBox<String> cbxDocente;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -341,7 +333,7 @@ public class frmNuevaAula extends javax.swing.JFrame {
     private javax.swing.JCheckBox jcbMiercoles;
     private javax.swing.JCheckBox jcbSabado;
     private javax.swing.JCheckBox jcbViernes;
-    private javax.swing.JTextField txtCodigoAula;
+    private javax.swing.JTextField txtCodigoSeccion;
     // End of variables declaration//GEN-END:variables
 
     private void llenarCbxCurso() {
@@ -356,8 +348,9 @@ public class frmNuevaAula extends javax.swing.JFrame {
         //Curso auxCurso=new Curso();
         for(int i=0;i<LC.getSize();i++){
             if(cursoCapturado.equalsIgnoreCase(LC.getNodoByIndex(i).getDato().getNombreCurso())){
-                for(int j=0;j<LC.getNodoByIndex(i).getDato().getDocentesACargo().getSize();j++){
-                    cbxDocente.addItem(LC.getNodoByIndex(i).getDato().getDocentesACargo().getNodoByIndex(j).getDato().getNombre());
+                ListaDocente auxLD = LC.getNodoByIndex(i).getDato().getDocentesACargo();
+                for(int j=0;j<auxLD.getSize();j++){
+                    cbxDocente.addItem(auxLD.getNodoByIndex(j).getDato().getNombre());
                 }
             }
         }
@@ -370,13 +363,7 @@ public class frmNuevaAula extends javax.swing.JFrame {
         cbxDocente.removeAllItems();
     }
     
-    private Curso buscarCurso(String curso){
-        
-        
-        
-     
-    return null;
-    }
+   
 
     private Docente buscarDocente(String docenteACargo) {
        

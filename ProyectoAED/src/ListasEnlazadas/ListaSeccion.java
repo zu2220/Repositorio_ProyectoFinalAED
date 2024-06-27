@@ -4,14 +4,14 @@ package ListasEnlazadas;
 import Clases.Seccion;
 
 
-public class ListaAula {
-    private NodoAula inicio, fin;
+public class ListaSeccion {
+    private NodoSeccion inicio, fin;
     private int size;
     
-    public ListaAula(){
+    public ListaSeccion(){
     } 
     public void actualizarPosiciones(){
-        NodoAula aux=inicio;
+        NodoSeccion aux=inicio;
         for(int i=0;i<size;i++){
             aux.setPosicion(i);
             aux=aux.getSig();
@@ -19,16 +19,16 @@ public class ListaAula {
     }
     public void insertarAlFinal(Seccion dato){
         if(inicio==null){
-            inicio=fin=new NodoAula(dato);
+            inicio=fin=new NodoSeccion(dato);
         }else{
-            fin.setSig(new NodoAula(dato));
+            fin.setSig(new NodoSeccion(dato));
             fin=fin.getSig();
         }
         size++;
         actualizarPosiciones();
     }
-    public NodoAula getNodoByIndex(int posicion){
-        NodoAula elemento=inicio;
+    public NodoSeccion getNodoByIndex(int posicion){
+        NodoSeccion elemento=inicio;
         
         while(elemento.getPosicion()!=posicion){
             elemento=elemento.getSig();
@@ -50,19 +50,19 @@ public class ListaAula {
         
     }
 
-    public NodoAula getInicio() {
+    public NodoSeccion getInicio() {
         return inicio;
     }
 
-    public void setInicio(NodoAula inicio) {
+    public void setInicio(NodoSeccion inicio) {
         this.inicio = inicio;
     }
 
-    public NodoAula getFin() {
+    public NodoSeccion getFin() {
         return fin;
     }
 
-    public void setFin(NodoAula fin) {
+    public void setFin(NodoSeccion fin) {
         this.fin = fin;
     }
 

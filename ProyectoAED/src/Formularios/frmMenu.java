@@ -2,7 +2,7 @@
 package Formularios;
 
 
-import ListasEnlazadas.ListaAula;
+import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import ListasEnlazadas.ListaDocente;
 import ListasEnlazadas.ListaUsuario;
@@ -19,7 +19,7 @@ public class frmMenu extends javax.swing.JFrame {
     //LISTAS ENLAZADAS------------------------------------------------
     ListaUsuario LU=new ListaUsuario();
     ListaCurso LC=new ListaCurso();
-    ListaAula LA=new ListaAula();
+    ListaSeccion LA=new ListaSeccion();
     ListaDocente LD=new ListaDocente();
     
     

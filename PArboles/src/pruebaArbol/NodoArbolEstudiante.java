@@ -1,6 +1,8 @@
 
 package pruebaArbol;
 
+
+
 /**
  *
  * @author Hector
@@ -39,6 +41,18 @@ public class NodoArbolEstudiante {
 
     public void setDerecha(NodoArbolEstudiante derecha) {
         this.derecha = derecha;
+    }
+    
+    
+    
+  
+    
+    public void inorden(){
+    
+    }
+    
+    public void postorden(){
+    
     }
 }
 

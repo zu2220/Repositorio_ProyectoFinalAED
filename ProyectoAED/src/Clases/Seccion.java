@@ -5,27 +5,29 @@ import ListasEnlazadas.ListaEstudiante;
 
 
 public class Seccion {
-    private String codigoAula;
+    private String codigoSeccion;
     private Curso curso;
     private Docente docenteACargo;
+
     private String[] horario=new String[6];
+
     private ListaEstudiante LE;
 
     public Seccion() {
     }
-    public Seccion(String codigoAula, Curso curso,Docente docenteACargo){
-        this.codigoAula=codigoAula;
+    public Seccion(String codigoSeccion, Curso curso,Docente docenteACargo){
+        this.codigoSeccion=codigoSeccion;
         this.curso=curso;
         this.docenteACargo=docenteACargo;
         
     }
 
-    public String getCodigoAula() {
-        return codigoAula;
+    public String getCodigoSeccion() {
+        return codigoSeccion;
     }
 
-    public void setCodigoAula(String codigoAula) {
-        this.codigoAula = codigoAula;
+    public void setCodigoSeccion(String codigoSeccion) {
+        this.codigoSeccion = codigoSeccion;
     }
 
     public Curso getCurso() {
@@ -52,6 +54,7 @@ public class Seccion {
         this.LE = LE;
     }
 
+
     public String getHorario(int i) {
         return this.horario[i];
     }
@@ -63,6 +66,6 @@ public class Seccion {
    public void insertarHDia(String hora,int p){
        this.horario[p]=hora;
    }
-    
+  
     
 }

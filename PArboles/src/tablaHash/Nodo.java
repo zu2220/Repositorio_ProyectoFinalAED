@@ -1,18 +1,20 @@
 
-package pruebaArbol;
+package tablaHash;
+
+import tablaHash.EstudianteTH;
 
 
 public class Nodo {
 
-        private Estudiante estudiante;
+        private EstudianteTH estudiante;
         private Nodo siguiente;
 
-        public Nodo(Estudiante estudiante) {
+        public Nodo(EstudianteTH estudiante) {
             this.estudiante = estudiante;
             this.siguiente = null;
         }
 
-        public Estudiante getEstudiante() {
+        public EstudianteTH getEstudiante() {
             return estudiante;
         }
 
