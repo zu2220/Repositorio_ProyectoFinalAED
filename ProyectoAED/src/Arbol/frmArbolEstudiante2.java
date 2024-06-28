@@ -330,6 +330,8 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
     // Obtener el modelo de la tabla
     DefaultTableModel modelo = (DefaultTableModel) tablaDatos.getModel();
+    
+
 
     // Agregar la nueva fila al modelo
     modelo.addRow(fila);

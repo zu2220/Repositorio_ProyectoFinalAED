@@ -6,6 +6,7 @@ package Arbol;
 
 import Clases.Estudiante;
 import ListasEnlazadas.NodoEstudiante;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +14,10 @@ import ListasEnlazadas.NodoEstudiante;
  */
 public class ArbolEstudiante {
     private NodoArbolEstudianteAB raiz;
-    private int size;
+   
 
     public ArbolEstudiante() {
         raiz = null;
-        size = 0;
     }
 
     // Método para insertar un nodo en el árbol
@@ -79,15 +79,18 @@ public class ArbolEstudiante {
     }
 
     // Método para recorrer el árbol en preorden
-    public void recorrerPreorden() {
-        recorrerPreorden(raiz);
-    }
+   
 
-    private void recorrerPreorden(NodoArbolEstudianteAB nodo) {
+    public void recorrerPreorden(NodoArbolEstudianteAB nodo, DefaultTableModel auxdtm) {
         if (nodo!= null) {
-            System.out.print(nodo.getDato() + " ");
-            recorrerPreorden(nodo.getIzquierda());
-            recorrerPreorden(nodo.getDerecha());
+            Object o[]= new Object[4];
+            o[0]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getNombre();
+            o[2]= nodo.getDato().getDNI();
+            o[3]= nodo.getDato().getEdad();
+            auxdtm.addRow(o);
+            recorrerPreorden(nodo.getIzquierda(), auxdtm);
+            recorrerPreorden(nodo.getDerecha(), auxdtm);
         }
     }
 
@@ -116,7 +119,7 @@ public class ArbolEstudiante {
             System.out.print(nodo.getDato() + " ");
         }
     }
-
+/*
        private NodoArbolEstudianteAB buscarNodo(NodoArbolEstudianteAB nodo, Estudiante dato) {
         if (nodo == null || nodo.getDato().equals(dato)) {
             return nodo;
@@ -126,7 +129,7 @@ public class ArbolEstudiante {
         } else {
             return buscarNodo(nodo.getDerecha(), dato);
         }
-    }
+    }*/
 
     // Método para eliminar un nodo del árbol
    /* public void eliminarNodo(Estudiante dato) {
@@ -167,14 +170,10 @@ public class ArbolEstudiante {
     }
 
     // Método para obtener el tamaño del árbol
-    public int getSize() {
-        return size;
-    }
+    
 
     // Método para verificar si el árbol está vacío
-    public boolean isEmpty() {
-        return size == 0;
-    }
+   
     
       
    /* public void insertar_preorden(Estudiante dato){
@@ -209,5 +208,13 @@ public class ArbolEstudiante {
         }
           
     }*/
+
+    public NodoArbolEstudianteAB getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(NodoArbolEstudianteAB raiz) {
+        this.raiz = raiz;
+    }
 
 }
