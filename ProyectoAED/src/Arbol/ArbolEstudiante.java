@@ -95,9 +95,7 @@ public class ArbolEstudiante {
     }
 
     // Método para recorrer el árbol en inorden
-    public void recorrerInorden() {
-        recorrerInorden(raiz);
-    }
+    
 
     private void recorrerInorden(NodoArbolEstudianteAB nodo) {
         if (nodo!= null) {
@@ -218,3 +216,4 @@ public class ArbolEstudiante {
     }
 
 }
+

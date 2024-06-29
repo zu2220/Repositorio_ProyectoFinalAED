@@ -1,6 +1,7 @@
 package Formularios;
 
-
+import Clases.Estudiante;
+import Clases.Seccion;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
@@ -13,11 +14,12 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
     String valorCelda;
     ListaCurso LC;
     ListaSeccion LA;
+    Estudiante est;
     DefaultTableModel dtm,dtm2;
     Object o[]=new Object[2];
     Object o2[]=new Object[5];
   
-    public frmMatriculaEstudiante(frmMenu menu) {
+    public frmMatriculaEstudiante(frmMenu menu, frmInicioSesion IS) {
         initComponents();
         this.menu=menu;
         LC=menu.LC;
@@ -25,6 +27,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         dtm=(DefaultTableModel)tablaCursosDisponibles.getModel();
         dtm2=(DefaultTableModel)tablaSecciones.getModel();
        // this.MIS=MIS;
+        est=(Estudiante)IS.us;
     }
 
     /**
@@ -183,8 +186,12 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         
         if(tablaSecciones.isRowSelected(x)){
             String codigo=dtm.getValueAt(x, 2).toString();
-            if(LA.buscarSeccion(codigo)==null)
+            Seccion auxSeccion=LA.buscarSeccion(codigo);
+            if(auxSeccion==null){
                 JOptionPane.showMessageDialog(this, "Error. No se pudo inscribir en la seccion");
+            }else{
+                est.insertarSecciones(auxSeccion);
+            }
         }
     }//GEN-LAST:event_btnSeleccionarSeccionActionPerformed
 
