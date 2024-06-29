@@ -106,17 +106,58 @@ public class ArbolEstudiante {
     }
 
     // Método para recorrer el árbol en postorden
-    public void recorrerPostorden() {
-        recorrerPostorden(raiz);
-    }
 
-    private void recorrerPostorden(NodoArbolEstudianteAB nodo) {
+
+    public void Postorden(NodoArbolEstudianteAB nodo, DefaultTableModel auxdtm) {
         if (nodo!= null) {
-            recorrerPostorden(nodo.getIzquierda());
-            recorrerPostorden(nodo.getDerecha());
-            System.out.print(nodo.getDato() + " ");
+            Postorden(nodo.getIzquierda(), auxdtm);
+            Postorden(nodo.getDerecha(), auxdtm);
+             Object o[]= new Object[4];
+            o[0]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getNombre();
+            o[2]= nodo.getDato().getDNI();
+            o[3]= nodo.getDato().getEdad();
+            auxdtm.addRow(o);
+            
+            
         }
     }
+   /* public void buscarelemento(int datito){
+	NArbol tem= raiz;
+		while(tem.getDato()!= datito){
+			if(datito < tem.getDato()){
+				tem= tem.getIzq();
+				
+			
+			} else{
+				tem = tem.getDer();
+			}
+		if (tem == null){
+			return null;
+		}
+		
+		}
+			return tem;
+
+
+} */
+    public NodoArbolEstudianteAB buscarelemento(int DNI){
+           NodoArbolEstudianteAB tem= raiz;
+    
+           while(tem.getDato().getDNI() != DNI){
+               if(DNI < tem.getDato().getDNI() ){
+                    tem= tem.getIzquierda();
+               } else{ tem = tem.getDerecha();
+               }
+               if(tem == null){
+                   
+                   return null;
+               }
+           }
+           return tem;
+    }
+    //AL metodo le falta el parametro DefaulTableModel
+    
 /*
        private NodoArbolEstudianteAB buscarNodo(NodoArbolEstudianteAB nodo, Estudiante dato) {
         if (nodo == null || nodo.getDato().equals(dato)) {
@@ -166,6 +207,21 @@ public class ArbolEstudiante {
         }
         return nodo;
     }
+    
+  public  void inorden(NodoArbolEstudianteAB nodo, DefaultTableModel dtm) {
+    if (nodo!= null) {
+        inorden(nodo.getIzquierda(), dtm);
+       Object o[]= new Object[4];
+      o[0]= nodo.getDato().getNombre();
+      o[1]= nodo.getDato().getApellido();
+      o[2]= nodo.getDato().getDNI();
+      o[3]= nodo.getDato().getEdad();
+                  dtm.addRow(o);
+
+        inorden(nodo.getDerecha(), dtm);
+    }
+}
+  
 
     // Método para obtener el tamaño del árbol
     

@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
  * @author Hector
  */
 public class frmArbolEstudiante2 extends javax.swing.JFrame { 
-    private Nodo raiz;
+
     private EstudianteAB est;
     ArbolEstudiante AB = new ArbolEstudiante ();
 DefaultTableModel dtmTablaDatos;
@@ -170,6 +170,8 @@ private Object obtenerNuevoValor(int fila, int columna) {
         btnBorrado = new javax.swing.JButton();
         btnEliminarIzquierda = new javax.swing.JButton();
         btnEliminarDerecha = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -242,32 +244,44 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
         btnEliminarDerecha.setText("Eliminar Derecha");
 
+        jLabel5.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(42, 42, 42)
+                                .addComponent(txtDNI))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtApellido))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 15, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtDNI))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtApellido))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(32, 32, 32)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPreOrden, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -285,10 +299,6 @@ private Object obtenerNuevoValor(int fila, int columna) {
                     .addComponent(btnEliminarIzquierda)
                     .addComponent(btnEliminarDerecha))
                 .addGap(77, 77, 77))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,9 +331,17 @@ private Object obtenerNuevoValor(int fila, int columna) {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(btnEliminarDerecha)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,7 +382,8 @@ private Object obtenerNuevoValor(int fila, int columna) {
       o[1]= estudiante.getApellido();
       o[2]= estudiante.getDNI();
       o[3]= estudiante.getEdad();
-    
+      dtmTablaDatos.addRow(o);
+      
       
     
 
@@ -379,11 +398,15 @@ private Object obtenerNuevoValor(int fila, int columna) {
     
     }//GEN-LAST:event_btnInsertarActionPerformed
 
+    
     private void btnInordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInordenActionPerformed
         // TODO add your handling code here:
         // Creamos un árbol binario vacío
+        limpiarTabla();
+        AB.inorden(AB.getRaiz(), dtmTablaDatos);
         
-        
+      //Guardando
+      
         
 /*
         NodoArbol raiz = new NodoArbol();
@@ -400,19 +423,41 @@ private Object obtenerNuevoValor(int fila, int columna) {
     }//GEN-LAST:event_btnInordenActionPerformed
 
     private void btnPostOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostOrdenActionPerformed
+                limpiarTabla();
+        AB.Postorden(AB.getRaiz(), dtmTablaDatos);
+
         
-        JTable tablaDatos= new JTable();
+        
+        /*       JTable tablaDatos= new JTable();
             // Crear un árbol binario con los datos de la JTable
     NodoArbol raiz = crearArbolDesdeJTable(tablaDatos);
 
     // Recorrer el árbol en postorden
     recorrerPostorden(raiz);
         
-            tablaDatos.setToolTipText(obtenerResultadoRecorrido());
+            tablaDatos.setToolTipText(obtenerResultadoRecorrido());*/
+ 
     }//GEN-LAST:event_btnPostOrdenActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        NodoArbolEstudianteAB NodoEncontrado= AB.buscarelemento(Integer.parseInt(txtBuscar.getText()));
+        txtBuscar.setText("");
+        if(NodoEncontrado == null){
+            JOptionPane.showMessageDialog(this, "No se encontro al estudiante.");
+        }
+        else {
+            limpiarTabla();
+      o[0]= NodoEncontrado.getDato().getNombre();
+      o[1]= NodoEncontrado.getDato().getApellido();
+      o[2]= NodoEncontrado.getDato().getDNI();
+      o[3]= NodoEncontrado.getDato().getEdad();
+          dtmTablaDatos.addRow(o);
+            
+        }
+        
+        
+     
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -650,10 +695,12 @@ private String inorden(NodoArbol raiz) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaDatos;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
