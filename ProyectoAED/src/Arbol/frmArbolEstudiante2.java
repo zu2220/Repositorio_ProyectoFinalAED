@@ -19,6 +19,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame {
     private Nodo raiz;
     private EstudianteAB est;
     ArbolEstudiante AB = new ArbolEstudiante ();
+    DefaultTableModel dtmTablaDatos;
     
     
     
@@ -27,6 +28,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame {
      */
     public frmArbolEstudiante2() {
         initComponents();
+        dtmTablaDatos=(DefaultTableModel)tablaDatos.getModel();
     }
     
        public void insertar(String nombre, String apellido, String dni, int edad) {
@@ -350,12 +352,11 @@ private Object obtenerNuevoValor(int fila, int columna) {
     private void btnInordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInordenActionPerformed
         // TODO add your handling code here:
         // Creamos un árbol binario vacío
-
+        
+        
+        
+/*
         NodoArbol raiz = new NodoArbol();
-    
-    
-    
-
     // Rellenamos el árbol con los datos de la tabla
     for (int i = 0; i < tablaDatos.getRowCount(); i++) {
         String valor = (String) tablaDatos.getValueAt(i, 0); // Suponiendo que la columna 0 es la que contiene los valores
@@ -365,7 +366,7 @@ private Object obtenerNuevoValor(int fila, int columna) {
     // Realizamos el recorrido inorden y mostramos los resultados
     String resultado = inorden(raiz);
     JOptionPane.showMessageDialog(this, "Recorrido inorden: " + resultado);
-        
+     */   
     }//GEN-LAST:event_btnInordenActionPerformed
 
     private void btnPostOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostOrdenActionPerformed
@@ -404,6 +405,8 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
     private void btnPreOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreOrdenActionPerformed
         // TODO add your handling code here:
+        limpiarTabla();
+        AB.recorrerPreorden(AB.getRaiz(), dtmTablaDatos);
 
     }//GEN-LAST:event_btnPreOrdenActionPerformed
 
@@ -621,4 +624,10 @@ private String inorden(NodoArbol raiz) {
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarTabla() {
+        for(int i=dtmTablaDatos.getRowCount();i>=1;i--){
+            dtmTablaDatos.removeRow(i-1);
+        }
+    }
 }

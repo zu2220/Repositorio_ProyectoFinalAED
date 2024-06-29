@@ -38,7 +38,7 @@ public class NodoSeccion {
         this.posicion = posicion;
     }
     public Seccion buscarNodo(String codigo){
-        if(this.getDato().getCodigoAula().equalsIgnoreCase(codigo))
+        if(this.getDato().getCodigoSeccion().equalsIgnoreCase(codigo))
             return this.getDato();
         else{
             if(this.getSig()!=null){
