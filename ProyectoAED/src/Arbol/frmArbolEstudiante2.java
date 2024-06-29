@@ -15,19 +15,42 @@ import javax.swing.table.TableModel;
  *
  * @author Hector
  */
-public class frmArbolEstudiante2 extends javax.swing.JFrame {
+public class frmArbolEstudiante2 extends javax.swing.JFrame { 
     private Nodo raiz;
     private EstudianteAB est;
     ArbolEstudiante AB = new ArbolEstudiante ();
-    
+     Object o[]= new Object[4];
+     DefaultTableModel dtm;
+     
+     
+     public void preorden(NodoArbolEstudianteAB nodo) {
+      if (nodo!= null) {
+       // txtA.append(nodo.dato + "\n"); // Visitar el nodo raíz
+      o[0]= nodo.getDato().getNombre();
+      o[1]= nodo.getDato().getApellido();
+      o[2]= nodo.getDato().getDNI();
+      o[3]= nodo.getDato().getEdad();
+      
+        preorden(nodo.getIzquierda()); // Recorrer el subárbol izquierdo
+        preorden(nodo.getDerecha()); // Recorrer el subárbol derecho
+        
+    }
+     
+     }
+ 
+
     
     
     /**
      * Creates new form frmArbolEstudiante2
      */
     public frmArbolEstudiante2() {
+        
         initComponents();
+        DefaultTableModel dtm= (DefaultTableModel)tablaDatos.getModel();
     }
+    
+    
     
        public void insertar(String nombre, String apellido, String dni, int edad) {
         Nodo nuevoNodo = new Nodo(nombre, apellido, dni, edad);
@@ -93,6 +116,7 @@ private void actualizarTabla() {
             modelo.setValueAt(nuevoValor, i, j);
         }
     }
+    
 
    
     // Notificar a la tabla que los datos han cambiado
@@ -314,6 +338,12 @@ private Object obtenerNuevoValor(int fila, int columna) {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+      private void limpiarTabla() {
+        for(int i= dtm.getRowCount(); i>=1; i--){
+            dtm.removeRow(i-1);
+        }
+    }
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
    // Obtener los valores de los JTextField
@@ -323,18 +353,13 @@ private Object obtenerNuevoValor(int fila, int columna) {
     int edad = Integer.parseInt(txtEdad.getText());
     int DNI = Integer.parseInt(txtDNI.getText());
     EstudianteAB estudiante= new EstudianteAB(nombre, apellido, DNI, edad);
+        o[0]= estudiante.getNombre();
+      o[1]= estudiante.getApellido();
+      o[2]= estudiante.getDNI();
+      o[3]= estudiante.getEdad();
     
+      
     
-    // Crear un nuevo objeto para almacenar los datos
-    Object[] fila = new Object[]{nombre, apellido, edad, DNI };
-
-    // Obtener el modelo de la tabla
-    DefaultTableModel modelo = (DefaultTableModel) tablaDatos.getModel();
-    
-
-
-    // Agregar la nueva fila al modelo
-    modelo.addRow(fila);
 
     // Limpiar los campos de texto
     txtNombre.setText("");
@@ -343,7 +368,7 @@ private Object obtenerNuevoValor(int fila, int columna) {
     txtEdad.setText("");
     
 
-    AB.insertar(est);
+    AB.insertar(estudiante);
     
     }//GEN-LAST:event_btnInsertarActionPerformed
 
@@ -404,7 +429,9 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
     private void btnPreOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreOrdenActionPerformed
         // TODO add your handling code here:
-
+           limpiarTabla();
+       AB.recorrerPreorden(AB.getRaiz(), dtm);
+       
     }//GEN-LAST:event_btnPreOrdenActionPerformed
 
     private void btnEliminarIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIzquierdaActionPerformed
@@ -622,3 +649,5 @@ private String inorden(NodoArbol raiz) {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
+
+
