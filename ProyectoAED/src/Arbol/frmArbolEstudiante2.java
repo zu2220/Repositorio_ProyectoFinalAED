@@ -21,8 +21,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame {
     ArbolEstudiante AB = new ArbolEstudiante ();
 DefaultTableModel dtmTablaDatos;
      Object o[]= new Object[4];
-      
-     
+      NodoArbolEstudianteAB raiz;
      
      public void preorden(NodoArbolEstudianteAB nodo) {
       if (nodo!= null) {
@@ -53,7 +52,7 @@ DefaultTableModel dtmTablaDatos;
         initComponents();
 
         dtmTablaDatos=(DefaultTableModel)tablaDatos.getModel();
-
+        raiz= null;
     }
     
     
@@ -243,6 +242,11 @@ private Object obtenerNuevoValor(int fila, int columna) {
         });
 
         btnEliminarDerecha.setText("Eliminar Derecha");
+        btnEliminarDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDerechaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Buscar");
 
@@ -441,8 +445,9 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        NodoArbolEstudianteAB NodoEncontrado= AB.buscarelemento(Integer.parseInt(txtBuscar.getText()));
-        txtBuscar.setText("");
+       
+        int dni= Integer.parseInt(txtBuscar.getText());
+        NodoArbolEstudianteAB NodoEncontrado= AB.buscar2(dni);
         if(NodoEncontrado == null){
             JOptionPane.showMessageDialog(this, "No se encontro al estudiante.");
         }
@@ -496,6 +501,12 @@ private Object obtenerNuevoValor(int fila, int columna) {
         
         
     }//GEN-LAST:event_btnEliminarIzquierdaActionPerformed
+
+    private void btnEliminarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDerechaActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnEliminarDerechaActionPerformed
 
     
     // Método para buscar un nodo en el árbol binario de búsqueda
@@ -615,6 +626,27 @@ private void recorrerPostorden(NodoArbol nodo) {
     }
 }
 
+   public void eliminarNodoMasDerecho(){
+        if(raiz== null){
+        
+            return;
+        }
+            NodoArbolEstudianteAB actual= raiz;
+            NodoArbolEstudianteAB padre = null;
+            
+            while(actual.getDerecha()!= null){
+                padre= actual;
+                actual= actual.getDerecha();
+            }
+            if(padre== null){
+               raiz= null;
+            } else{
+                padre= padre.getDerecha();
+           }
+            //Mostrar datos en la tabla
+    
+    }
+
 
 
 // Método para obtener el resultado del recorrido
@@ -706,7 +738,81 @@ private String inorden(NodoArbol raiz) {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
-  
+    private void eliminarNodoMasDerechoYActualizarTabla(DefaultTableModel dtmTablaDatos) {
+           
+        EstudianteAB est= new EstudianteAB();
+        NodoArbolEstudianteAB nodo = new NodoArbolEstudianteAB(est);
+        eliminarNodoMasDerecho();
+     
+    int fila = dtmTablaDatos.getRowCount() - 1; // Eliminamos la última fila
+    dtmTablaDatos.removeRow(fila);
+        
+        
+        
+    }
+
+    public void eliminar(NodoArbolEstudianteAB raiz, int busqueda) {
+        
+        this.raiz= raiz;
+        this.eliminar(raiz, busqueda);
+        
+}
+    public NodoArbolEstudianteAB eliminar(NodoArbolEstudianteAB nodo, NodoArbolEstudianteAB busqueda){
+        if(nodo == null){
+            return nodo;
+        }
+       if(busqueda.getDato().getDNI()> nodo.getDato().getDNI()){
+           nodo.setDerecha(this.eliminar(nodo.getDerecha(), busqueda));
+       } else if(busqueda.getDato().getDNI()< nodo.getDato().getDNI() ){
+           nodo.setIzquierda(this.eliminar(nodo.getIzquierda(), busqueda));
+       } else {
+           if(nodo.getIzquierda()== null && nodo.getDerecha()== null){
+               nodo = null;
+           }
+           else if(nodo.getDerecha()!= null){
+              nodo.setDato(est);
+              nodo.setDerecha(this.eliminar(nodo.getDerecha(), busqueda));
+           }
+           else{
+           
+           }
+       }  
+         
+       
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        return null;
+    }
+    private NodoArbolEstudianteAB sucesor(NodoArbolEstudianteAB nodo) {
+    nodo = nodo.getDerecha();
+    while (nodo.getIzquierda() != null) {
+        nodo = nodo.getIzquierda();
+    }
+    return nodo;
 }
 
+private NodoArbolEstudianteAB predecesor(NodoArbolEstudianteAB nodo) {
+    nodo = nodo.getIzquierda();
+    while (nodo.getDerecha() != null) {
+        nodo = nodo.getDerecha();
+    }
+    return nodo;
+}
+    
+  
+}
 

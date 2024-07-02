@@ -6,6 +6,7 @@ package Arbol;
 
 import Clases.Estudiante;
 import ListasEnlazadas.NodoEstudiante;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ArbolEstudiante {
     private NodoArbolEstudianteAB raiz;
+    private Object dtmTablaDatos;
    
 
     public ArbolEstudiante() {
@@ -141,20 +143,35 @@ public class ArbolEstudiante {
 
 
 } */
-    public NodoArbolEstudianteAB buscarelemento(int DNI){
-           NodoArbolEstudianteAB tem= raiz;
-    
-           while(tem.getDato().getDNI() != DNI){
-               if(DNI < tem.getDato().getDNI() ){
-                    tem= tem.getIzquierda();
-               } else{ tem = tem.getDerecha();
-               }
-               if(tem == null){
-                   
-                   return null;
-               }
-           }
-           return tem;
+    public NodoArbolEstudianteAB buscarelemento(int DNI, DefaultTableModel dtm){
+        NodoArbolEstudianteAB tem= this.raiz;
+        while(tem.getDato().getDNI()!=DNI){
+            if(DNI < tem.getDato().getDNI()){
+                tem= tem.getIzquierda();
+            } else{
+                tem= tem.getDerecha();
+            
+            }
+            try{
+             if(tem.getDato()== null)
+                return null ;
+            
+            
+            }catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, "error 2");
+            }
+           
+            
+            
+            
+        
+        
+        }
+        
+        
+        
+        return tem;
     }
     //AL metodo le falta el parametro DefaulTableModel
     
@@ -271,5 +288,64 @@ public class ArbolEstudiante {
         this.raiz = raiz;
     }
 
+    
+    public NodoArbolEstudianteAB buscar2(int dni){
+        boolean encontrado= false;
+        NodoArbolEstudianteAB tem= raiz;
+        while(!encontrado && tem!= null){
+            if(dni== tem.getDato().getDNI()){
+                encontrado= true;
+            
+            } else if(dni<tem.getDato().getDNI()){
+                tem= tem.getIzquierda();
+                
+            } else{
+                tem= tem.getDerecha();
+            }
+        
+        }
+        
+            return tem;
+    
+    }
+    
+    public void eliminarNodoMasDerecho(){
+        if(raiz== null){
+        
+            return;
+        }
+            NodoArbolEstudianteAB actual= raiz;
+            NodoArbolEstudianteAB padre = null;
+            
+            while(actual.getDerecha()!= null){
+                padre= actual;
+                actual= actual.getDerecha();
+            }
+            if(padre== null){
+               raiz= null;
+            } else{
+                padre= padre.getDerecha();
+           }
+            //Mostrar datos en la tabla
+    
+    }
+    
+    
+    public void eliminarNodoMasDerechoYActualizarTabla(javax.swing.table.DefaultTableModel dtm) {
+         Object o[]= new Object[4];
+        EstudianteAB est= new EstudianteAB();
+        NodoArbolEstudianteAB nodo = new NodoArbolEstudianteAB(est);
+        eliminarNodoMasDerecho();
+        
+    dtm.addRow(o);
+          o[0]= nodo.getDato().getNombre();
+      o[1]= nodo.getDato().getApellido();
+      o[2]= nodo.getDato().getDNI();
+      o[3]= nodo.getDato().getEdad();
+    int fila = dtm.getRowCount() - 1; // Eliminamos la última fila
+    dtm.removeRow(fila);
+}
+    
+    
 }
 
