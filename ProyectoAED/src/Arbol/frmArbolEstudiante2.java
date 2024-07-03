@@ -1,21 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Arbol;
 
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
-/**
- *
- * @author Hector
- */
-public class frmArbolEstudiante2 extends javax.swing.JFrame { 
+
+
+public class frmArbolEstudiante2 extends javax.swing.JFrame
+{
+
 
     ArbolEstudiante AB ;
     DefaultTableModel dtmTablaDatos;
@@ -38,50 +32,31 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame {
      
      }
  
-    public frmArbolEstudiante2() {
+   
         
+
+
+   
+
+    /**
+     * Creates new form frmArbolEstudiante2
+     */
+    public frmArbolEstudiante2()
+    {
+
         initComponents();
         AB=new ArbolEstudiante ();
 
-        dtmTablaDatos=(DefaultTableModel)tablaDatos.getModel();
-
+        dtmTablaDatos = (DefaultTableModel) tablaDatos.getModel();
+       
     }
-    // Método para actualizar la JTable con los datos del árbol
-private void actualizarTabla() {
-   // Obtener el modelo de tabla asociado a la tabla
-    TableModel modelo = tablaDatos.getModel();
 
-    // Iterar sobre las filas de la tabla
-    for (int i = 0; i < modelo.getRowCount(); i++) {
-        // Iterar sobre las columnas de la tabla
-        for (int j = 0; j < modelo.getColumnCount(); j++) {
-            // Obtener el valor actual de la celda
-            Object valorActual = modelo.getValueAt(i, j);
 
-            // Actualizar el valor de la celda según sea necesario
-            // Por ejemplo, si queremos actualizar la celda con un nuevo valor
-            Object nuevoValor = obtenerNuevoValor(i, j); // implementar este método
-            modelo.setValueAt(nuevoValor, i, j);
-        }
-    }
     
 
-   
-    // Notificar a la tabla que los datos han cambiado
-    ((AbstractTableModel) modelo).fireTableDataChanged();
-}
 
-private Object obtenerNuevoValor(int fila, int columna) {
-    // Supongamos que queremos actualizar la tabla con valores hardcodeados
-    if (fila == 0 && columna == 0) {
-        return "Nuevo valor 1";
-    } else if (fila == 1 && columna == 1) {
-        return 20;
-    } else {
-        return "Valor por defecto";
-    }
-}
 
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +69,6 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -113,6 +87,7 @@ private Object obtenerNuevoValor(int fila, int columna) {
         btnEliminarDerecha = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -184,6 +159,11 @@ private Object obtenerNuevoValor(int fila, int columna) {
         });
 
         btnEliminarDerecha.setText("Eliminar Derecha");
+        btnEliminarDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDerechaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Buscar");
 
@@ -205,19 +185,18 @@ private Object obtenerNuevoValor(int fila, int columna) {
                                 .addGap(42, 42, 42)
                                 .addComponent(txtDNI))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
                                 .addGap(18, 18, 18)
-                                .addComponent(txtApellido))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 15, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtApellido)
+                                    .addComponent(txtNombre))))
+                        .addGap(168, 168, 168))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -247,10 +226,10 @@ private Object obtenerNuevoValor(int fila, int columna) {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInorden)
                     .addComponent(btnPostOrden)
-                    .addComponent(btnInsertar))
+                    .addComponent(btnInsertar)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -304,10 +283,11 @@ private Object obtenerNuevoValor(int fila, int columna) {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-      private void limpiarTabla() {
-        for(int i= dtmTablaDatos.getRowCount(); i>=1; i--){
-            dtmTablaDatos.removeRow(i-1);
+    private void limpiarTabla()
+    {
+        for (int i = dtmTablaDatos.getRowCount(); i >= 1; i--)
+        {
+            dtmTablaDatos.removeRow(i - 1);
         }
     }
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
@@ -330,101 +310,73 @@ private Object obtenerNuevoValor(int fila, int columna) {
       
     
 
-    // Limpiar los campos de texto
-    txtNombre.setText("");
-    txtDNI.setText("");
-    txtApellido.setText("");
-    txtEdad.setText("");
-    
+        // Limpiar los campos de texto
+        txtNombre.setText("");
+        txtDNI.setText("");
+        txtApellido.setText("");
+        txtEdad.setText("");
 
-    
+        AB.insertar(estudiante);
+
+
     }//GEN-LAST:event_btnInsertarActionPerformed
 
-    
+
     private void btnInordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInordenActionPerformed
         // TODO add your handling code here:
         // Creamos un árbol binario vacío
         limpiarTabla();
-        AB.inorden(AB.getRaiz(), dtmTablaDatos);
-        
-      //Guardando
-      
-        
-/*
-        NodoArbol raiz = new NodoArbol();
-    // Rellenamos el árbol con los datos de la tabla
-    for (int i = 0; i < tablaDatos.getRowCount(); i++) {
-        String valor = (String) tablaDatos.getValueAt(i, 0); // Suponiendo que la columna 0 es la que contiene los valores
-        raiz = insertarNodo(raiz, valor);
-    }
-
-    // Realizamos el recorrido inorden y mostramos los resultados
-    String resultado = inorden(raiz);
-    JOptionPane.showMessageDialog(this, "Recorrido inorden: " + resultado);
-     */   
+        AB.recorrerInorden(AB.getRaiz(), dtmTablaDatos);
     }//GEN-LAST:event_btnInordenActionPerformed
 
     private void btnPostOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostOrdenActionPerformed
-                limpiarTabla();
+        limpiarTabla();
         AB.Postorden(AB.getRaiz(), dtmTablaDatos);
-
-        
-        
-        /*       JTable tablaDatos= new JTable();
-            // Crear un árbol binario con los datos de la JTable
-    NodoArbol raiz = crearArbolDesdeJTable(tablaDatos);
-
-    // Recorrer el árbol en postorden
-    recorrerPostorden(raiz);
-        
-            tablaDatos.setToolTipText(obtenerResultadoRecorrido());*/
- 
     }//GEN-LAST:event_btnPostOrdenActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        int dni=Integer.parseInt(txtBuscar.getText());
-        NodoArbolEstudianteAB auxE= AB.buscarelemento(dni);
-        
-        if(auxE== null){
+
+
+        int dni = Integer.parseInt(txtBuscar.getText());
+        NodoArbolEstudianteAB NodoEncontrado = AB.buscar2(dni);
+        if (NodoEncontrado == null)
+        {
             JOptionPane.showMessageDialog(this, "No se encontro al estudiante.");
-        }
-        else {
+        } else
+        {
             limpiarTabla();
-            o[0]= auxE.getDato().getNombre();
-            o[1]= auxE.getDato().getApellido();
-            o[2]= auxE.getDato().getDNI();
-            o[3]= auxE.getDato().getEdad();
+
+
+            o[0] = NodoEncontrado.getDato().getNombre();
+            o[1] = NodoEncontrado.getDato().getApellido();
+            o[2] = NodoEncontrado.getDato().getDNI();
+            o[3] = NodoEncontrado.getDato().getEdad();
             dtmTablaDatos.addRow(o);
-            
         }
-        
-        
-     
-        
+
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnBorradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorradoActionPerformed
         // TODO add your handling code here:
-            //No hay un metodo eliminar que elimine todos los elementos del arbol
-         //Emplear uno de los 2, ya sea por izquierda o derecha.
-         //El borrado va a borrar un nodo especifico, no TODOS LOS ELEMENTOS DEL ARBOL
-         //Para eliminar, cumplir las ciertas reglas de la izquierda, y tu codigo diferencie que es una hoja o nodo con ramas.
-         //Que no se afecte al eliminar al nodo en especifico
-         //1ERO RECORRER Pasar de la izquierda pasar.
-         //Si tiene nodo y no tiene mas ramas, lo de izquierda pasa al Nodo que deseas eliminado
-         //Si es que tiene mas ramas, entonces paso a su rama derecha y reemplazo a su nodo que se encuentra a la rama derecha
-         //al cual deseo eliminar, de su rama derecha y izquierda.
-         //despues de al nodo eliminar ---> Va a pasar a la rama derecha del nodo que se encuentra a la rama izquierda del nodo Eliminar por el nodo que se encuentra a la derecha
-         // del que se encuentra al nodo eliminar.
-         
-         
+        //No hay un metodo eliminar que elimine todos los elementos del arbol
+        //Emplear uno de los 2, ya sea por izquierda o derecha.
+        //El borrado va a borrar un nodo especifico, no TODOS LOS ELEMENTOS DEL ARBOL
+        //Para eliminar, cumplir las ciertas reglas de la izquierda, y tu codigo diferencie que es una hoja o nodo con ramas.
+        //Que no se afecte al eliminar al nodo en especifico
+        //1ERO RECORRER Pasar de la izquierda pasar.
+        //Si tiene nodo y no tiene mas ramas, lo de izquierda pasa al Nodo que deseas eliminado
+        //Si es que tiene mas ramas, entonces paso a su rama derecha y reemplazo a su nodo que se encuentra a la rama derecha
+        //al cual deseo eliminar, de su rama derecha y izquierda.
+        //despues de al nodo eliminar ---> Va a pasar a la rama derecha del nodo que se encuentra a la rama izquierda del nodo Eliminar por el nodo que se encuentra a la derecha
+        // del que se encuentra al nodo eliminar.
+
+
     }//GEN-LAST:event_btnBorradoActionPerformed
 
     private void btnPreOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreOrdenActionPerformed
         // TODO add your handling code here:
-
-       
 
         limpiarTabla();
         AB.recorrerPreorden(AB.getRaiz(), dtmTablaDatos);
@@ -435,192 +387,196 @@ private Object obtenerNuevoValor(int fila, int columna) {
     private void btnEliminarIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIzquierdaActionPerformed
         // TODO add your handling code here:
         int datoaeliminar;
-        
-        
-        
-        
     }//GEN-LAST:event_btnEliminarIzquierdaActionPerformed
 
-    
+    private void btnEliminarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDerechaActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnEliminarDerechaActionPerformed
+
     // Método para buscar un nodo en el árbol binario de búsqueda
-private Nodo buscarNodo(Nodo raiz, String clavePrimaria) {
-    if (raiz == null) {
-        return null;
+    private Nodo buscarNodo(Nodo raiz, String clavePrimaria)
+    {
+        if (raiz == null)
+        {
+            return null;
+        }
+
+        if (raiz.getClavePrimaria().equals(clavePrimaria))
+        {
+            return raiz;
+        }
+
+        if (clavePrimaria.compareTo(raiz.getClavePrimaria()) < 0)
+        {
+            return buscarNodo(raiz.getIzquierda(), clavePrimaria);
+        } else
+        {
+            return buscarNodo(raiz.getDerecha(), clavePrimaria);
+        }
     }
 
-    if (raiz.getClavePrimaria().equals(clavePrimaria)) {
+    // Método para eliminar un nodo del árbol binario de búsqueda
+    private void eliminarNodo(Nodo raiz, Nodo nodoAEliminar)
+    {
+        if (nodoAEliminar.getIzquierda() == null && nodoAEliminar.getDerecha() == null)
+        {
+            // Caso 1: Nodo hoja
+            eliminarNodoHoja(raiz, nodoAEliminar);
+        } else if (nodoAEliminar.getIzquierda() == null)
+        {
+            // Caso 2: Nodo con un hijo derecho
+            reemplazarNodo(raiz, nodoAEliminar, nodoAEliminar.getDerecha());
+        } else if (nodoAEliminar.getDerecha() == null)
+        {
+            // Caso 3: Nodo con un hijo izquierdo
+            reemplazarNodo(raiz, nodoAEliminar, nodoAEliminar.getIzquierda());
+        } else
+        {
+            // Caso 4: Nodo con dos hijos
+            Nodo nodoReemplazo = buscarNodoMasCercano(nodoAEliminar);
+            reemplazarNodo(raiz, nodoAEliminar, nodoReemplazo);
+        }
+    }
+
+// Método para eliminar un nodo hoja
+    private void eliminarNodoHoja(Nodo raiz, Nodo nodoAEliminar)
+    {
+        if (raiz.getIzquierda() == nodoAEliminar)
+        {
+            raiz.setIzquierda(null);
+        } else
+        {
+            raiz.setDerecha(null);
+        }
+    }
+
+// Método para reemplazar un nodo
+    private void reemplazarNodo(Nodo raiz, Nodo nodoAEliminar, Nodo nodoReemplazo)
+    {
+        if (raiz.getIzquierda() == nodoAEliminar)
+        {
+            raiz.setIzquierda(nodoReemplazo);
+        } else
+        {
+            raiz.setDerecha(nodoReemplazo);
+        }
+    }
+
+// Método para buscar el nodo más cercano a un nodo dado
+    private Nodo buscarNodoMasCercano(Nodo nodo)
+    {
+        if (nodo.getIzquierda() != null)
+        {
+            return buscarNodoMasCercano(nodo.getIzquierda());
+        } else
+        {
+            return nodo.getDerecha();
+        }
+    }
+
+    // Método para crear un árbol binario desde la JTable
+    private NodoArbol crearArbolDesdeJTable(JTable tabla)
+    {
+        NodoArbol raiz = null;
+        for (int i = 0; i < tabla.getRowCount(); i++)
+        {
+            String nombre = (String) tabla.getValueAt(i, 0);
+            String apellido = (String) tabla.getValueAt(i, 1);
+            String dni = (String) tabla.getValueAt(i, 2);
+            int edad = (int) tabla.getValueAt(i, 3);
+
+            NodoArbol nodo = new NodoArbol(nombre, apellido, dni, edad);
+            if (raiz == null)
+            {
+                raiz = nodo;
+            } else
+            {
+                agregarNodo(raiz, nodo);
+            }
+        }
         return raiz;
     }
 
-    if (clavePrimaria.compareTo(raiz.getClavePrimaria()) < 0) {
-        return buscarNodo(raiz.getIzquierda(), clavePrimaria);
-    } else {
-        return buscarNodo(raiz.getDerecha(), clavePrimaria);
-    }
-}
-
-
-    
-    
-    
-    // Método para eliminar un nodo del árbol binario de búsqueda
-private void eliminarNodo(Nodo raiz, Nodo nodoAEliminar) {
-    if (nodoAEliminar.getIzquierda() == null && nodoAEliminar.getDerecha() == null) {
-        // Caso 1: Nodo hoja
-        eliminarNodoHoja(raiz, nodoAEliminar);
-    } else if (nodoAEliminar.getIzquierda() == null) {
-        // Caso 2: Nodo con un hijo derecho
-        reemplazarNodo(raiz, nodoAEliminar, nodoAEliminar.getDerecha());
-    } else if (nodoAEliminar.getDerecha() == null) {
-        // Caso 3: Nodo con un hijo izquierdo
-        reemplazarNodo(raiz, nodoAEliminar, nodoAEliminar.getIzquierda());
-    } else {
-        // Caso 4: Nodo con dos hijos
-        Nodo nodoReemplazo = buscarNodoMasCercano(nodoAEliminar);
-        reemplazarNodo(raiz, nodoAEliminar, nodoReemplazo);
-    }
-}
-
-// Método para eliminar un nodo hoja
-private void eliminarNodoHoja(Nodo raiz, Nodo nodoAEliminar) {
-    if (raiz.getIzquierda() == nodoAEliminar) {
-        raiz.setIzquierda(null);
-    } else {
-        raiz.setDerecha(null);
-    }
-}
-
-// Método para reemplazar un nodo
-private void reemplazarNodo(Nodo raiz, Nodo nodoAEliminar, Nodo nodoReemplazo) {
-    if (raiz.getIzquierda() == nodoAEliminar) {
-        raiz.setIzquierda(nodoReemplazo);
-    } else {
-        raiz.setDerecha(nodoReemplazo);
-    }
-}
-
-// Método para buscar el nodo más cercano a un nodo dado
-private Nodo buscarNodoMasCercano(Nodo nodo) {
-    if (nodo.getIzquierda() != null) {
-        return buscarNodoMasCercano(nodo.getIzquierda());
-    } else {
-        return nodo.getDerecha();
-    }
-}
-    
-    
-    
-    
-    
-    // Método para crear un árbol binario desde la JTable
-private NodoArbol crearArbolDesdeJTable(JTable tabla) {
-    NodoArbol raiz = null;
-    for (int i = 0; i < tabla.getRowCount(); i++) {
-        String nombre = (String) tabla.getValueAt(i, 0);
-        String apellido = (String) tabla.getValueAt(i, 1);
-        String dni = (String) tabla.getValueAt(i, 2);
-        int edad = (int) tabla.getValueAt(i, 3);
-
-        NodoArbol nodo = new NodoArbol(nombre, apellido, dni, edad);
-        if (raiz == null) {
-            raiz = nodo;
-        } else {
-            agregarNodo(raiz, nodo);
-        }
-    }
-    return raiz;
-}
-    
-    
     // Método para agregar un nodo al árbol binario
-private void agregarNodo(NodoArbol raiz, NodoArbol nodo) {
-    if (nodo.dni.compareTo(raiz.dni) < 0) {
-        if (raiz.izquierdo == null) {
-            raiz.izquierdo = nodo;
-        } else {
-            agregarNodo(raiz.izquierdo, nodo);
-        }
-    } else {
-        if (raiz.derecho == null) {
-            raiz.derecho = nodo;
-        } else {
-            agregarNodo(raiz.derecho, nodo);
+    private void agregarNodo(NodoArbol raiz, NodoArbol nodo)
+    {
+        if (nodo.dni.compareTo(raiz.dni) < 0)
+        {
+            if (raiz.izquierdo == null)
+            {
+                raiz.izquierdo = nodo;
+            } else
+            {
+                agregarNodo(raiz.izquierdo, nodo);
+            }
+        } else
+        {
+            if (raiz.derecho == null)
+            {
+                raiz.derecho = nodo;
+            } else
+            {
+                agregarNodo(raiz.derecho, nodo);
+            }
         }
     }
-}
 
 // Método para recorrer el árbol en postorden
-private void recorrerPostorden(NodoArbol nodo) {
-    if (nodo!= null) {
-        recorrerPostorden(nodo.izquierdo);
-        recorrerPostorden(nodo.derecho);
-        // Visitar el nodo raíz
-       
+    private void recorrerPostorden(NodoArbol nodo)
+    {
+        if (nodo != null)
+        {
+            recorrerPostorden(nodo.izquierdo);
+            recorrerPostorden(nodo.derecho);
+            // Visitar el nodo raíz
+
+        }
     }
-}
 
+  
 
-
-// Método para obtener el resultado del recorrido
-private String obtenerResultadoRecorrido() {
-    // Aquí puedes concatenar los resultados del recorrido en una cadena
-    // y devolverla
-    return "";
-}
-    
-    // Método para insertar un nodo en el árbol binario
-private NodoArbol insertarNodo(NodoArbol raiz, String valor) {
-    if (raiz != null) {
-        raiz = new NodoArbol(valor);
-    } else if (valor.compareTo(raiz.valor) < 0) {
-        raiz.izquierdo = insertarNodo(raiz.izquierdo, valor);
-    } else {
-        raiz.derecho = insertarNodo(raiz.derecho, valor);
-    }
-    return raiz;
-}
-
-// Método para realizar el recorrido inorden
-private String inorden(NodoArbol raiz) {
-    if (raiz == null) {
-        return "";
-    } else {
-        return inorden(raiz.izquierdo) + raiz.valor + " " + inorden(raiz.derecho);
-    }
-}
-    
-    
-    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(frmArbolEstudiante2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(frmArbolEstudiante2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(frmArbolEstudiante2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(frmArbolEstudiante2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new frmArbolEstudiante2().setVisible(true);
             }
         });
@@ -650,7 +606,4 @@ private String inorden(NodoArbol raiz) {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
-  
 }
-
-
