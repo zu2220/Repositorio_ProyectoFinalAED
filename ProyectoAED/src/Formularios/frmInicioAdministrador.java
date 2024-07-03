@@ -37,6 +37,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
         btnCrearSeccion = new javax.swing.JButton();
         btnRegistrarNuevoU = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +52,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
                 btnCrearCursoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 155, -1));
+        jPanel1.add(btnCrearCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 155, -1));
 
         btnCrearSeccion.setText("Crear sección");
         btnCrearSeccion.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +60,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
                 btnCrearSeccionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 155, -1));
+        jPanel1.add(btnCrearSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 155, -1));
 
         btnRegistrarNuevoU.setText("Registrar nuevo usuario");
         btnRegistrarNuevoU.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +68,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
                 btnRegistrarNuevoUActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarNuevoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
+        jPanel1.add(btnRegistrarNuevoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         btnCerrarSesion.setText("Cerrar sesión");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +76,15 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 160, -1));
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 160, -1));
+
+        jButton1.setText("Registrar nuevo docente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +128,12 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
         nuevoUsuario.setVisible(true);
     }//GEN-LAST:event_btnRegistrarNuevoUActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        frmRegistroDocente nuevoDocente = new frmRegistroDocente();
+        dispose();
+        nuevoDocente.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -129,6 +144,7 @@ public class frmInicioAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnCrearCurso;
     private javax.swing.JButton btnCrearSeccion;
     private javax.swing.JButton btnRegistrarNuevoU;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
