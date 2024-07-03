@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Arbol;
 
 
 
-/**
- *
- * @author Hector
- */
+
 public class NodoArbolEstudianteAB {
      private EstudianteAB dato;
     private NodoArbolEstudianteAB izquierda;
@@ -20,6 +14,10 @@ public class NodoArbolEstudianteAB {
         this.izquierda = null;
         this.derecha = null;
     }
+
+    public NodoArbolEstudianteAB() {
+    }
+    
 
     public EstudianteAB getDato() {
         return dato;

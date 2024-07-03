@@ -17,10 +17,9 @@ import javax.swing.table.TableModel;
  */
 public class frmArbolEstudiante2 extends javax.swing.JFrame { 
 
-    private EstudianteAB est;
-    ArbolEstudiante AB = new ArbolEstudiante ();
-DefaultTableModel dtmTablaDatos;
-     Object o[]= new Object[4];
+    ArbolEstudiante AB ;
+    DefaultTableModel dtmTablaDatos;
+    Object o[]= new Object[4];
       
      
      
@@ -39,72 +38,14 @@ DefaultTableModel dtmTablaDatos;
      
      }
  
-
-
-   
-    
-    
-    
-    /**
-     * Creates new form frmArbolEstudiante2
-     */
     public frmArbolEstudiante2() {
         
         initComponents();
+        AB=new ArbolEstudiante ();
 
         dtmTablaDatos=(DefaultTableModel)tablaDatos.getModel();
 
     }
-    
-    
-    
-    
-       public void insertar(String nombre, String apellido, String dni, int edad) {
-        Nodo nuevoNodo = new Nodo(nombre, apellido, dni, edad);
-        Nodo raiz = null;
-        if (raiz == null) {
-            raiz = nuevoNodo;
-        } else {
-            insertarRecursivo(raiz, nuevoNodo);
-        }
-    }
-
-       
-       
-    private void insertarRecursivo(Nodo actual, Nodo nuevoNodo) {
-        if (nuevoNodo.getDni().compareTo(actual.getDni()) < 0) {
-            if (actual.getIzquierda() == null) {
-                actual.setIzquierda(nuevoNodo);
-            } else {
-                insertarRecursivo(actual.getIzquierda(), nuevoNodo);
-            }
-        } else {
-            if (actual.getDerecha() == null) {
-                actual.setDerecha(nuevoNodo);
-            } else {
-                insertarRecursivo(actual.getDerecha(), nuevoNodo);
-            }
-        }
-    }
-
-    public void mostrarDatos(JTable tabla) {
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-        modelo.setRowCount(0);
-        Nodo raiz = null;
-        mostrarDatosRecursivo(raiz, modelo);
-    }
-
-    private void mostrarDatosRecursivo(Nodo actual, DefaultTableModel modelo) {
-        if (actual != null) {
-            modelo.addRow(new Object[]{actual.getNombre(), actual.getApellido(), actual.getDni(), actual.getEdad()});
-            mostrarDatosRecursivo(actual.getIzquierda(), modelo);
-            mostrarDatosRecursivo(actual.getDerecha(), modelo);
-        }
-    } 
-  
-     
-
-
     // Método para actualizar la JTable con los datos del árbol
 private void actualizarTabla() {
    // Obtener el modelo de tabla asociado a la tabla
@@ -378,7 +319,9 @@ private Object obtenerNuevoValor(int fila, int columna) {
     int edad = Integer.parseInt(txtEdad.getText());
     int DNI = Integer.parseInt(txtDNI.getText());
     EstudianteAB estudiante= new EstudianteAB(nombre, apellido, DNI, edad);
-        o[0]= estudiante.getNombre();
+    AB.insertar(estudiante);
+
+      o[0]= estudiante.getNombre();
       o[1]= estudiante.getApellido();
       o[2]= estudiante.getDNI();
       o[3]= estudiante.getEdad();
@@ -394,7 +337,6 @@ private Object obtenerNuevoValor(int fila, int columna) {
     txtEdad.setText("");
     
 
-    AB.insertar(estudiante);
     
     }//GEN-LAST:event_btnInsertarActionPerformed
 
@@ -441,18 +383,19 @@ private Object obtenerNuevoValor(int fila, int columna) {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        NodoArbolEstudianteAB NodoEncontrado= AB.buscarelemento(Integer.parseInt(txtBuscar.getText()));
-        txtBuscar.setText("");
-        if(NodoEncontrado == null){
+        int dni=Integer.parseInt(txtBuscar.getText());
+        NodoArbolEstudianteAB auxE= AB.buscarelemento(dni);
+        
+        if(auxE== null){
             JOptionPane.showMessageDialog(this, "No se encontro al estudiante.");
         }
         else {
             limpiarTabla();
-      o[0]= NodoEncontrado.getDato().getNombre();
-      o[1]= NodoEncontrado.getDato().getApellido();
-      o[2]= NodoEncontrado.getDato().getDNI();
-      o[3]= NodoEncontrado.getDato().getEdad();
-          dtmTablaDatos.addRow(o);
+            o[0]= auxE.getDato().getNombre();
+            o[1]= auxE.getDato().getApellido();
+            o[2]= auxE.getDato().getDNI();
+            o[3]= auxE.getDato().getEdad();
+            dtmTablaDatos.addRow(o);
             
         }
         
@@ -492,6 +435,7 @@ private Object obtenerNuevoValor(int fila, int columna) {
     private void btnEliminarIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIzquierdaActionPerformed
         // TODO add your handling code here:
         int datoaeliminar;
+        
         
         
         

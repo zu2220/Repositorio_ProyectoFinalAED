@@ -4,8 +4,6 @@
  */
 package Arbol;
 
-import Clases.Estudiante;
-import ListasEnlazadas.NodoEstudiante;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -50,32 +48,31 @@ public class ArbolEstudiante {
     
     public void insertar(EstudianteAB dato){
     NodoArbolEstudianteAB nuevo= new NodoArbolEstudianteAB(dato);
-    if(raiz== null){
-        raiz= nuevo;
+    if(raiz==null){
+        raiz=nuevo;
        
     } else{
-     NodoArbolEstudianteAB tem= raiz;
-     NodoArbolEstudianteAB Padre;
-     while(true){
-         Padre= tem;
-     if(dato.getEdad() < tem.getDato().getEdad()){
-         tem= tem.getIzquierda();
-         if(tem == null){
-         Padre.setIzquierda(nuevo);
-            return;
-     }
-     }  else{
-         tem= tem.getDerecha();
-         if(tem== null){
-             Padre.setDerecha(nuevo);
-             return;
-         }
+        NodoArbolEstudianteAB tem= raiz;
+        NodoArbolEstudianteAB Padre;
+        while(true){
+            Padre= tem;
+            if(dato.getEdad() < tem.getDato().getEdad()){
+                tem= tem.getIzquierda();
+                if(tem == null){
+                    Padre.setIzquierda(nuevo);
+                    break;
+                    
+                }
+            } else{
+                tem= tem.getDerecha();
+                if(tem== null){
+                    Padre.setDerecha(nuevo);
+                    break;
+                }
    
+             }
+        }
      }
-     }
-    }
-    
-    
     }
 
     // Método para recorrer el árbol en preorden
@@ -85,7 +82,7 @@ public class ArbolEstudiante {
         if (nodo!= null) {
             Object o[]= new Object[4];
             o[0]= nodo.getDato().getNombre();
-            o[1]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getApellido();
             o[2]= nodo.getDato().getDNI();
             o[3]= nodo.getDato().getEdad();
             auxdtm.addRow(o);
@@ -97,11 +94,16 @@ public class ArbolEstudiante {
     // Método para recorrer el árbol en inorden
     
 
-    private void recorrerInorden(NodoArbolEstudianteAB nodo) {
+    private void recorrerInorden(NodoArbolEstudianteAB nodo,DefaultTableModel auxdtm) {
         if (nodo!= null) {
-            recorrerInorden(nodo.getIzquierda());
-            System.out.print(nodo.getDato() + " ");
-            recorrerInorden(nodo.getDerecha());
+            recorrerInorden(nodo.getIzquierda(),auxdtm);
+            Object o[]= new Object[4];
+            o[0]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getApellido();
+            o[2]= nodo.getDato().getDNI();
+            o[3]= nodo.getDato().getEdad();
+            auxdtm.addRow(o);
+            recorrerInorden(nodo.getDerecha(),auxdtm);
         }
     }
 
@@ -112,9 +114,9 @@ public class ArbolEstudiante {
         if (nodo!= null) {
             Postorden(nodo.getIzquierda(), auxdtm);
             Postorden(nodo.getDerecha(), auxdtm);
-             Object o[]= new Object[4];
+            Object o[]= new Object[4];
             o[0]= nodo.getDato().getNombre();
-            o[1]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getApellido();
             o[2]= nodo.getDato().getDNI();
             o[3]= nodo.getDato().getEdad();
             auxdtm.addRow(o);
@@ -142,19 +144,20 @@ public class ArbolEstudiante {
 
 } */
     public NodoArbolEstudianteAB buscarelemento(int DNI){
-           NodoArbolEstudianteAB tem= raiz;
+           NodoArbolEstudianteAB tem=raiz;
+           while (tem != null) {
+                if (DNI < tem.getDato().getDNI()) {
+                    tem = tem.getIzquierda();
+                } else if (DNI > tem.getDato().getDNI()) {
+                             tem = tem.getDerecha();
+                } else {
+                    return tem; // Se encontró el nodo con el DNI buscado
+                  }
+            }
     
-           while(tem.getDato().getDNI() != DNI){
-               if(DNI < tem.getDato().getDNI() ){
-                    tem= tem.getIzquierda();
-               } else{ tem = tem.getDerecha();
-               }
-               if(tem == null){
-                   
-                   return null;
-               }
-           }
-           return tem;
+            return null; 
+           
+               
     }
     //AL metodo le falta el parametro DefaulTableModel
     
@@ -269,6 +272,10 @@ public class ArbolEstudiante {
 
     public void setRaiz(NodoArbolEstudianteAB raiz) {
         this.raiz = raiz;
+    }
+    
+    public void eliminarPorIzquierda(NodoArbolEstudianteAB eliminar){
+    
     }
 
 }
