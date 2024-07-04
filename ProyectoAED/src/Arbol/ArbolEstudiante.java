@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Arbol;
 
-import Clases.Estudiante;
-import ListasEnlazadas.NodoEstudiante;
-import javax.swing.JOptionPane;
+
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Hector
- */
+
 public class ArbolEstudiante
 {
 
@@ -24,67 +16,41 @@ public class ArbolEstudiante
         raiz = null;
     }
 
-    // Método para insertar un nodo en el árbol
-    /* public void insertarNodo(Estudiante dato) {
-        if (raiz == null) {
-            raiz = new NodoArbolEstudianteAB(dato);
-        } else {
-            insertar(raiz, dato);
-        }
-        size++;
-    }*/
-    // Método auxiliar para la inserción de un nodo
-    /* private void insertar(NodoArbolEstudianteAB nodo, Estudiante dato) {
-       if (dato.getEdad()< nodo.getDato().getEdad()) {
-            if (nodo.getIzquierda() == null) {
-                nodo.setIzquierda(new NodoArbolEstudianteAB(dato));
-            } else {
-                insertar(nodo.getIzquierda(), dato);
-            }
-        } else if (dato.getEdad()>nodo.getDato().getEdad()) {
-            if (nodo.getDerecha() == null) {
-                nodo.setDerecha(new NodoArbolEstudianteAB(dato));
-            } else {
-                insertar(nodo.getDerecha(), dato);
-            }
-        }
-    } */
-    public void insertar(EstudianteAB dato)
-    {
-        NodoArbolEstudianteAB nuevo = new NodoArbolEstudianteAB(dato);
-        if (raiz == null)
-        {
-            raiz = nuevo;
-
-        } else
-        {
-            NodoArbolEstudianteAB tem = raiz;
-            NodoArbolEstudianteAB Padre;
-            while (true)
-            {
-                Padre = tem;
-                if (dato.getDNI() < tem.getDato().getDNI())
-                {
-                    tem = tem.getIzquierda();
-                    if (tem == null)
-                    {
-                        Padre.setIzquierda(nuevo);
-                        return;
-                    }
-                } else
-                {
-                    tem = tem.getDerecha();
-                    if (tem == null)
-                    {
-                        Padre.setDerecha(nuevo);
-                        return;
-                    }
-
+    
+    public void insertar(EstudianteAB dato){
+    NodoArbolEstudianteAB nuevo= new NodoArbolEstudianteAB(dato);
+    if(raiz==null){
+        raiz=nuevo;
+       
+    } else{
+        NodoArbolEstudianteAB tem= raiz;
+        NodoArbolEstudianteAB Padre;
+        while(true){
+            Padre= tem;
+            if(dato.getEdad() < tem.getDato().getEdad()){
+                tem= tem.getIzquierda();
+                if(tem == null){
+                    Padre.setIzquierda(nuevo);
+                    break;
+                    
                 }
-            }
+            } else{
+                tem= tem.getDerecha();
+                if(tem== null){
+                    Padre.setDerecha(nuevo);
+                    break;
+                }
+   
+             }
         }
-
+     }
     }
+
+    // Método para recorrer el árbol en preorden
+   
+
+   
+   
 
     // Método para recorrer el árbol en preorden
     public void recorrerPreorden(NodoArbolEstudianteAB nodo, DefaultTableModel auxdtm)
@@ -96,6 +62,7 @@ public class ArbolEstudiante
             o[1] = nodo.getDato().getNombre();
             o[2] = nodo.getDato().getDNI();
             o[3] = nodo.getDato().getEdad();
+
             auxdtm.addRow(o);
             recorrerPreorden(nodo.getIzquierda(), auxdtm);
             recorrerPreorden(nodo.getDerecha(), auxdtm);
@@ -103,13 +70,19 @@ public class ArbolEstudiante
     }
 
     // Método para recorrer el árbol en inorden
-    private void recorrerInorden(NodoArbolEstudianteAB nodo)
-    {
-        if (nodo != null)
-        {
-            recorrerInorden(nodo.getIzquierda());
-            System.out.print(nodo.getDato() + " ");
-            recorrerInorden(nodo.getDerecha());
+
+    
+
+    public void recorrerInorden(NodoArbolEstudianteAB nodo,DefaultTableModel auxdtm) {
+        if (nodo!= null) {
+            recorrerInorden(nodo.getIzquierda(),auxdtm);
+            Object o[]= new Object[4];
+            o[0]= nodo.getDato().getNombre();
+            o[1]= nodo.getDato().getApellido();
+            o[2]= nodo.getDato().getDNI();
+            o[3]= nodo.getDato().getEdad();
+            auxdtm.addRow(o);
+            recorrerInorden(nodo.getDerecha(),auxdtm);
         }
     }
 
@@ -120,11 +93,13 @@ public class ArbolEstudiante
         {
             Postorden(nodo.getIzquierda(), auxdtm);
             Postorden(nodo.getDerecha(), auxdtm);
+
             Object o[] = new Object[4];
             o[0] = nodo.getDato().getNombre();
             o[1] = nodo.getDato().getNombre();
             o[2] = nodo.getDato().getDNI();
             o[3] = nodo.getDato().getEdad();
+
             auxdtm.addRow(o);
 
         }
@@ -149,35 +124,23 @@ public class ArbolEstudiante
 
 
 } */
-    public NodoArbolEstudianteAB buscarelemento(int DNI, DefaultTableModel dtm)
-    {
-        NodoArbolEstudianteAB tem = this.raiz;
-        while (tem.getDato().getDNI() != DNI)
-        {
-            if (DNI < tem.getDato().getDNI())
-            {
-                tem = tem.getIzquierda();
-            } else
-            {
-                tem = tem.getDerecha();
+
+    public NodoArbolEstudianteAB buscarelemento(int DNI){
+           NodoArbolEstudianteAB tem=raiz;
+           while (tem != null) {
+                if (DNI < tem.getDato().getDNI()) {
+                    tem = tem.getIzquierda();
+                } else if (DNI > tem.getDato().getDNI()) {
+                             tem = tem.getDerecha();
+                } else {
+                    return tem; // Se encontró el nodo con el DNI buscado
+                  }
             }
-            try
-            {
-                if (tem.getDato() == null)
-                {
-                    return null;
-                }
-
-            } catch (Exception e)
-            {
-
-                JOptionPane.showMessageDialog(null, "error 2");
-            }
-
-        }
-
-        return tem;
+    
+            return null; 
+           
     }
+    
     //AL metodo le falta el parametro DefaulTableModel
 
     /*
@@ -221,30 +184,8 @@ public class ArbolEstudiante
         return nodo;
     }**/
     // Método auxiliar para encontrar el nodo con el valor mínimo
-    private NodoArbolEstudianteAB encontrarMinimo(NodoArbolEstudianteAB nodo)
-    {
-        while (nodo.getIzquierda() != null)
-        {
-            nodo = nodo.getIzquierda();
-        }
-        return nodo;
-    }
-
-    public void inorden(NodoArbolEstudianteAB nodo, DefaultTableModel dtm)
-    {
-        if (nodo != null)
-        {
-            inorden(nodo.getIzquierda(), dtm);
-            Object o[] = new Object[4];
-            o[0] = nodo.getDato().getNombre();
-            o[1] = nodo.getDato().getApellido();
-            o[2] = nodo.getDato().getDNI();
-            o[3] = nodo.getDato().getEdad();
-            dtm.addRow(o);
-
-            inorden(nodo.getDerecha(), dtm);
-        }
-    }
+    
+    
 
     // Método para obtener el tamaño del árbol
     // Método para verificar si el árbol está vacío
@@ -280,14 +221,17 @@ public class ArbolEstudiante
         }
           
     }*/
-    public NodoArbolEstudianteAB getRaiz()
-    {
-        return raiz;
+    public NodoArbolEstudianteAB getRaiz(){
+        return this.raiz;
     }
 
     public void setRaiz(NodoArbolEstudianteAB raiz)
     {
         this.raiz = raiz;
+    }
+    
+    public void eliminarPorIzquierda(NodoArbolEstudianteAB eliminar){
+    
     }
 
     public NodoArbolEstudianteAB buscar2(int dni)
