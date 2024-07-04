@@ -338,7 +338,6 @@ public class ArbolEstudiante
             padre = padre.getDerecha();
         }
         //Mostrar datos en la tabla
-
     }
 
     public void eliminarNodoMasDerechoYActualizarTabla(javax.swing.table.DefaultTableModel dtm)
@@ -355,6 +354,69 @@ public class ArbolEstudiante
         o[3] = nodo.getDato().getEdad();
         int fila = dtm.getRowCount() - 1; // Eliminamos la última fila
         dtm.removeRow(fila);
+         eliminarNodoMasDerecho();
+        // Actualiza la tabla aquí
+        dtm.setRowCount(0); // Limpia la tabla
+        inorden(raiz, dtm); // Vuelve a llenar la tabla con los datos actuales
     }
-
+ 
+        public void eliminar(NodoArbolEstudianteAB dato) throws Exception{
+            EstudianteAB est= new EstudianteAB();
+            NodoArbolEstudianteAB aux= new NodoArbolEstudianteAB(est);
+            EstudianteAB nuevo = new EstudianteAB();
+            raiz= eliminarN(raiz,nuevo);
+                
+        }
+        public NodoArbolEstudianteAB eliminarN(NodoArbolEstudianteAB aux, EstudianteAB data) throws Exception{
+            EstudianteAB aux1= new EstudianteAB();
+            NodoArbolEstudianteAB iz= new NodoArbolEstudianteAB(aux1);
+            NodoArbolEstudianteAB der= new NodoArbolEstudianteAB(aux1);
+            if(aux== null){
+                throw new Exception("Nodo no encontrado");
+            
+            
+            
+            } else if(aux1.getDNI()< aux1.getDNI() ){
+                ArbolEstudiante iz1= new ArbolEstudiante();
+              aux.setIzquierda(aux);
+            
+            } else if(data.getDNI()>aux1.getDNI()){
+                 der= eliminarN(der.getDerecha(), aux1);
+                 aux.setDerecha(der);
+            } else{
+                NodoArbolEstudianteAB p= der;
+                if(p.getDerecha()== null){
+                    aux= p.getIzquierda();
+                
+                } else if(p.getIzquierda()== null){
+                    aux= p.getDerecha();
+                
+                } else{
+                    p= cambiar(p);
+                }
+            }
+        NodoArbolEstudianteAB p = null;
+            return der;
+         
+        }
+        
+        public NodoArbolEstudianteAB cambiar(NodoArbolEstudianteAB aux){
+            NodoArbolEstudianteAB p= aux;
+            NodoArbolEstudianteAB a= aux.getIzquierda();
+            while(a.getDerecha()!= null){
+                p= a;
+                a= a.getDerecha();
+            }
+            aux.setDato(a.getDato());
+            
+        
+        
+            return null;
+        }
+        
+        
+        
+        
+        
+    
 }
