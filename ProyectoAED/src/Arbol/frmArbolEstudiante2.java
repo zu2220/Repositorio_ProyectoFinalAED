@@ -346,7 +346,12 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
     private void btnEliminarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDerechaActionPerformed
         // TODO add your handling code here:
 
-
+                ArbolEstudiante arbol = new ArbolEstudiante(); // Instancia del árbol
+                DefaultTableModel dtmtablaDatos = (DefaultTableModel) tablaDatos.getModel(); // Modelo de la tabla
+    
+                 arbol.eliminarNodoMasDerechoYActualizarTabla(dtmtablaDatos);
+      
+        
     }//GEN-LAST:event_btnEliminarDerechaActionPerformed
 
   
