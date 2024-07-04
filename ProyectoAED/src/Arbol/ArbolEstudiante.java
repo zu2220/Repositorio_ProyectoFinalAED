@@ -9,7 +9,6 @@ public class ArbolEstudiante
 {
 
     private NodoArbolEstudianteAB raiz;
-    private Object dtmTablaDatos;
 
     public ArbolEstudiante()
     {
@@ -45,11 +44,6 @@ public class ArbolEstudiante
         }
      }
     }
-
-    // Método para recorrer el árbol en preorden
-   
-
-   
    
 
     // Método para recorrer el árbol en preorden
@@ -57,13 +51,13 @@ public class ArbolEstudiante
     {
         if (nodo != null)
         {
-            Object o[] = new Object[4];
-            o[0] = nodo.getDato().getNombre();
-            o[1] = nodo.getDato().getNombre();
-            o[2] = nodo.getDato().getDNI();
-            o[3] = nodo.getDato().getEdad();
+            Object oo[] = new Object[4];
+            oo[0] = nodo.getDato().getNombre();
+            oo[1]=nodo.getDato().getApellido();
+            oo[2] = nodo.getDato().getDNI();
+            oo[3] = nodo.getDato().getEdad();
 
-            auxdtm.addRow(o);
+            auxdtm.addRow(oo);
             recorrerPreorden(nodo.getIzquierda(), auxdtm);
             recorrerPreorden(nodo.getDerecha(), auxdtm);
         }
@@ -141,86 +135,7 @@ public class ArbolEstudiante
            
     }
     
-    //AL metodo le falta el parametro DefaulTableModel
-
-    /*
-       private NodoArbolEstudianteAB buscarNodo(NodoArbolEstudianteAB nodo, Estudiante dato) {
-        if (nodo == null || nodo.getDato().equals(dato)) {
-            return nodo;
-        }
-        if (dato.getEdad() < 0) {
-            return buscarNodo(nodo.getIzquierda(), dato);
-        } else {
-            return buscarNodo(nodo.getDerecha(), dato);
-        }
-    }*/
-    // Método para eliminar un nodo del árbol
-    /* public void eliminarNodo(Estudiante dato) {
-        raiz = eliminarNodo(raiz, dato);
-        size--;
-    }
-
-   /* private NodoArbolEstudianteAB eliminarNodo(NodoArbolEstudianteAB nodo, Estudiante dato) {
-        if (nodo == null) {
-            return null;
-        }
-        if (dato.getEdad()<(nodo.getDato().getEdad())) {
-            nodo.setIzquierda(eliminarNodo(nodo.getIzquierda(), dato));
-        } else if (dato.getEdad()==(nodo.getDato().getEdad())) {
-            nodo.setDerecha(eliminarNodo(nodo.getDerecha(), dato));
-        } else {
-            // Nodo con un solo hijo o sin hijos
-            if (nodo.getIzquierda() == null) {
-                return nodo.getDerecha();
-            } else if (nodo.getDerecha() == null) {
-                return nodo.getIzquierda();
-            } else {
-                // Nodo con dos hijos: obtener el sucesor en inorden (menor de la subárbol derecho)
-                NodoArbolEstudianteAB minimo = encontrarMinimo(nodo.getDerecha());
-                nodo.setDato(minimo.getDato());
-                nodo.setDerecha(eliminarNodo(nodo.getDerecha(), minimo.getDato()));
-            }
-        }
-        return nodo;
-    }**/
-    // Método auxiliar para encontrar el nodo con el valor mínimo
     
-    
-
-    // Método para obtener el tamaño del árbol
-    // Método para verificar si el árbol está vacío
-    /* public void insertar_preorden(Estudiante dato){
-        NodoArbolEstudianteAB nuevo = new NodoArbolEstudianteAB(dato);
-        if(raiz == null){
-            raiz= nuevo;     
-        } else{
-            NodoArbolEstudianteAB tem= raiz;
-            NodoArbolEstudianteAB padre;
-              while(true){
-                padre= tem;
-                if(nuevo.getDato().getEdad()< tem.getDato().getEdad()){
-                    tem= tem.getIzquierda();
-                    if( tem == null){
-                        padre.setIzquierda(nuevo);
-                        return;
-                    
-                    } else{
-                        tem= tem.getDerecha();
-                        if(tem == null){
-                            padre.setDerecha(nuevo);
-                            return;
-                        
-                        }
-                    }
-                
-                
-                }
-            
-            
-            }
-        }
-          
-    }*/
     public NodoArbolEstudianteAB getRaiz(){
         return this.raiz;
     }
