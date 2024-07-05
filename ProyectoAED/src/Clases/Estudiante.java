@@ -1,8 +1,12 @@
 
 package Clases;
 
+
+import ListasEnlazadas.ListaSeccion;
+
 public class Estudiante extends Usuario {
     private String NumOrden;
+    private ListaSeccion seccionesE;
     
 
     public Estudiante(String NumOrden) {
@@ -24,7 +28,17 @@ public class Estudiante extends Usuario {
     public void setNumOrden(String NumOrden) {
         this.NumOrden = NumOrden;
     }
+
+    public ListaSeccion getSeccionesE() {
+        return seccionesE;
+    }
+
+    public void setSeccionesE(ListaSeccion seccionesE) {
+        this.seccionesE = seccionesE;
+    }
     
-    
+    public void insertarSecciones(Seccion sec){
+        seccionesE.insertarAlFinal(sec);
+    }
     
 }

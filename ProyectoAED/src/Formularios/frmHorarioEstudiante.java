@@ -4,17 +4,32 @@
  */
 package Formularios;
 
+import Clases.Estudiante;
+import ListasEnlazadas.ListaSeccion;
+import ListasEnlazadas.NodoSeccion;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author oscar
  */
 public class frmHorarioEstudiante extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MiHorario
-     */
-    public frmHorarioEstudiante() {
+    DefaultTableModel dtm;
+    Estudiante est;
+    ListaSeccion seccionesEstudiante;
+    int totalSecciones;
+    Object[] o;
+    
+    public frmHorarioEstudiante(frmInicioSesion IS) {
         initComponents();
+        dtm=(DefaultTableModel)horarioEstudiante.getModel();
+        est=(Estudiante)IS.us;
+        totalSecciones=est.getSeccionesE().getSize();
+        seccionesEstudiante=est.getSeccionesE();
+        o=new Object[totalSecciones];
+        mostrarHorario();
+        
     }
 
     /**
@@ -28,21 +43,21 @@ public class frmHorarioEstudiante extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        horarioEstudiante = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        horarioEstudiante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"
+                "Cursos/Días", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(horarioEstudiante);
 
         jLabel1.setText("Horario 1 de matemática");
 
@@ -52,19 +67,20 @@ public class frmHorarioEstudiante extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addGap(286, 286, 286))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(268, 268, 268)
-                .addComponent(btnRegresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addGap(286, 286, 286))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegresar)
+                        .addGap(354, 354, 354))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,9 +89,9 @@ public class frmHorarioEstudiante extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(btnRegresar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,9 +115,18 @@ public class frmHorarioEstudiante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JTable horarioEstudiante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarHorario() {
+        NodoSeccion auxNodo=seccionesEstudiante.getInicio();
+        for(int i=0;i<totalSecciones;i++){
+            o[i]=auxNodo.getDato().getCurso().getNombreCurso();
+            if(auxNodo.getSig()!=null)
+                auxNodo=auxNodo.getSig();
+        }
+    }
 }

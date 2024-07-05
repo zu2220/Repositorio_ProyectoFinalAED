@@ -74,4 +74,7 @@ public class ListaSeccion {
         this.size = size;
     }
     
+    public Seccion buscarSeccion(String codigo){
+        return this.getNodoByIndex(0).buscarNodo(codigo);
+    }
 }

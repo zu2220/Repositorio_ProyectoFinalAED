@@ -5,7 +5,7 @@
 package tablaHash;
 
 import tablaHash.TablaHash;
-import tablaHash.Estudiante;
+import tablaHash.EstudianteTH;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -238,7 +238,7 @@ public class frmTablaHash extends javax.swing.JFrame {
         int indice;
         String nombre= txtNombre.getText(), apellido= txtApellido.getText(), DNI= txtDNI.getText();
         
-        Estudiante est= new Estudiante(codigo,"Estudiante", nombre, apellido, DNI);
+        EstudianteTH est= new EstudianteTH(codigo,"Estudiante", nombre, apellido, DNI);
         
         indice= th1.hash(est.getCodigo());
         est.setIndice(indice);
@@ -299,7 +299,7 @@ public class frmTablaHash extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         int codigo= Integer.parseInt(txtBuscar.getText());
-        Estudiante est1= th1.buscar(codigo);
+        EstudianteTH est1= th1.buscar(codigo);
         limpiarTabla();
         o[0]= est1.getIndice();
         o[1]= est1.getCodigo();

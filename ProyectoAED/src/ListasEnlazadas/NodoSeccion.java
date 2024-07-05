@@ -37,5 +37,16 @@ public class NodoSeccion {
     public void setPosicion(int posicion) {
         this.posicion = posicion;
     }
+    public Seccion buscarNodo(String codigo){
+        if(this.getDato().getCodigoSeccion().equalsIgnoreCase(codigo))
+            return this.getDato();
+        else{
+            if(this.getSig()!=null){
+                return this.getSig().buscarNodo(codigo);
+            }
+            else
+                return null;
+        }
+    }
     
 }

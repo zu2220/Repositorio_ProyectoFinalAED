@@ -8,6 +8,7 @@ import Interfaces.IListaEnlazada;
 
 
 public class Usuario  {
+    private int id;
     private String tipoUsuario;
     private String Nombre;
     private String Apellido;
@@ -28,6 +29,24 @@ public class Usuario  {
         this.Contrasena = Contrasena;
     }
 
+    public Usuario(int id, String tipoUsuario, String Nombre, String Apellido, String DNI, String Email, String Contrasena) {
+        this.id = id;
+        this.tipoUsuario = tipoUsuario;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.DNI = DNI;
+        this.Email = Email;
+        this.Contrasena = Contrasena;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
    
 

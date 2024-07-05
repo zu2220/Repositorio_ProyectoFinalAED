@@ -1,6 +1,6 @@
 package pruebaArbol;
 
-import tablaHash.Estudiante;
+
 
 public class ArbolEstudiante {
     
@@ -24,13 +24,13 @@ public class ArbolEstudiante {
 
     // Método auxiliar para la inserción de un nodo
     private void insertar(NodoArbolEstudiante nodo, Estudiante dato) {
-        if (dato.compareTo(nodo.getDato()) < 0) {
+        if (dato.getEdad()< nodo.getDato().getEdad()) {
             if (nodo.getIzquierda() == null) {
                 nodo.setIzquierda(new NodoArbolEstudiante(dato));
             } else {
                 insertar(nodo.getIzquierda(), dato);
             }
-        } else if (dato.compareTo(nodo.getDato()) > 0) {
+        } else if (dato.getEdad()>nodo.getDato().getEdad()) {
             if (nodo.getDerecha() == null) {
                 nodo.setDerecha(new NodoArbolEstudiante(dato));
             } else {
@@ -46,7 +46,7 @@ public class ArbolEstudiante {
 
     private void recorrerPreorden(NodoArbolEstudiante nodo) {
         if (nodo != null) {
-            System.out.print(nodo.getDato() + " ");
+            System.out.print(nodo.getDato() + "\n ");
             recorrerPreorden(nodo.getIzquierda());
             recorrerPreorden(nodo.getDerecha());
         }
@@ -87,7 +87,7 @@ public class ArbolEstudiante {
         if (nodo == null || nodo.getDato().equals(dato)) {
             return nodo;
         }
-        if (dato.compareTo(nodo.getDato()) < 0) {
+        if (dato.getEdad() < 0) {
             return buscarNodo(nodo.getIzquierda(), dato);
         } else {
             return buscarNodo(nodo.getDerecha(), dato);
@@ -104,9 +104,9 @@ public class ArbolEstudiante {
         if (nodo == null) {
             return null;
         }
-        if (dato.compareTo(nodo.getDato()) < 0) {
+        if (dato.getEdad()<(nodo.getDato().getEdad())) {
             nodo.setIzquierda(eliminarNodo(nodo.getIzquierda(), dato));
-        } else if (dato.compareTo(nodo.getDato()) > 0) {
+        } else if (dato.getEdad()==(nodo.getDato().getEdad())) {
             nodo.setDerecha(eliminarNodo(nodo.getDerecha(), dato));
         } else {
             // Nodo con un solo hijo o sin hijos
@@ -150,19 +150,18 @@ public class ArbolEstudiante {
         } else{
             NodoArbolEstudiante tem= raiz;
             NodoArbolEstudiante padre;
-        }
-            while(true){
-                tem= padre;
-                if(tem< tem.getDato()){
-                    tem= tem.getIzq();
+              while(true){
+                padre= tem;
+                if(nuevo.getDato().getEdad()< tem.getDato().getEdad()){
+                    tem= tem.getIzquierda();
                     if( tem == null){
-                        padre.setIzq(nuevo);
+                        padre.setIzquierda(nuevo);
                         return;
                     
                     } else{
-                        tem= tem.getDer();
+                        tem= tem.getDerecha();
                         if(tem == null){
-                            padre.setDer(nuevo);
+                            padre.setDerecha(nuevo);
                             return;
                         
                         }
@@ -173,6 +172,8 @@ public class ArbolEstudiante {
             
             
             }
+        }
+          
     }
     
 }

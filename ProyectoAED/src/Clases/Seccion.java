@@ -8,6 +8,9 @@ public class Seccion {
     private String codigoSeccion;
     private Curso curso;
     private Docente docenteACargo;
+
+    private String[] horario=new String[6];
+
     private ListaEstudiante LE;
 
     public Seccion() {
@@ -50,7 +53,19 @@ public class Seccion {
     public void setLE(ListaEstudiante LE) {
         this.LE = LE;
     }
-    
-    
+
+
+    public String getHorario(int i) {
+        return this.horario[i];
+    }
+
+    public void setHorario(String[] horario) {
+        this.horario = horario;
+    }
+
+   public void insertarHDia(String hora,int p){
+       this.horario[p]=hora;
+   }
+  
     
 }

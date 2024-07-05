@@ -1,5 +1,7 @@
 package Formularios;
 
+import Clases.Estudiante;
+import Clases.Seccion;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
@@ -12,10 +14,12 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
     String valorCelda;
     ListaCurso LC;
     ListaSeccion LA;
+    Estudiante est;
     DefaultTableModel dtm,dtm2;
     Object o[]=new Object[2];
     Object o2[]=new Object[5];
-    public frmMatriculaEstudiante(frmMenu menu) {
+  
+    public frmMatriculaEstudiante(frmMenu menu, frmInicioSesion IS) {
         initComponents();
         this.menu=menu;
         LC=menu.LC;
@@ -23,6 +27,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         dtm=(DefaultTableModel)tablaCursosDisponibles.getModel();
         dtm2=(DefaultTableModel)tablaSecciones.getModel();
        // this.MIS=MIS;
+        est=(Estudiante)IS.us;
     }
 
     /**
@@ -57,7 +62,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 btnSeleccionarCursoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSeleccionarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, -1, -1));
+        jPanel2.add(btnSeleccionarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
 
         tablaCursosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,7 +115,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 btnVerCursosDisponiblesActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
         tablaSecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,6 +182,17 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
     private void btnSeleccionarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSeccionActionPerformed
         // TODO add your handling code here:
+        int x=tablaSecciones.getSelectedRow();
+        
+        if(tablaSecciones.isRowSelected(x)){
+            String codigo=dtm.getValueAt(x, 2).toString();
+            Seccion auxSeccion=LA.buscarSeccion(codigo);
+            if(auxSeccion==null){
+                JOptionPane.showMessageDialog(this, "Error. No se pudo inscribir en la seccion");
+            }else{
+                est.insertarSecciones(auxSeccion);
+            }
+        }
     }//GEN-LAST:event_btnSeleccionarSeccionActionPerformed
 
     /**
@@ -232,4 +248,6 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
             dtm.removeRow(i-1);
         }
     }
-}
+   } 
+
+
