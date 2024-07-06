@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmRegistroDocente extends javax.swing.JFrame {
     
     DefaultTableModel dtm;
+    frmInicioAdministrador IAd;
     ListaUsuario US;
     ListaDocente DOC;
     Object O[] = new Object[4];
@@ -35,10 +36,10 @@ public class frmRegistroDocente extends javax.swing.JFrame {
         this.hashTable = new Hashtable<>();
     }
     
-    private int dispersamientoAritmeticoModular(String dni) {
+    private int dispersamientoAritmeticoModular(String codigo) {
         int clave = 0;
-        for (int i = 0; i < dni.length(); i++) {
-            clave += (int) dni.charAt(i);
+        for (int i = 0; i < codigo.length(); i++) {
+            clave += (int) codigo.charAt(i);
         }
         clave = clave % 127; // Tamaño del hash table
         return clave;
@@ -94,6 +95,11 @@ public class frmRegistroDocente extends javax.swing.JFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,6 +226,11 @@ public class frmRegistroDocente extends javax.swing.JFrame {
             dtm.addRow(O);
         }
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+       dispose();
+       IAd.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
