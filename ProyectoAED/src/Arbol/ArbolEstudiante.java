@@ -301,7 +301,7 @@ public class ArbolEstudiante
          eliminarNodoMasDerecho();
         // Actualiza la tabla aquí
         dtm.setRowCount(0); // Limpia la tabla
-        inorden(raiz, dtm); // Vuelve a llenar la tabla con los datos actuales
+        recorrerInorden(raiz, dtm); // Vuelve a llenar la tabla con los datos actuales
     }
  
         public void eliminar(NodoArbolEstudianteAB dato) throws Exception{
