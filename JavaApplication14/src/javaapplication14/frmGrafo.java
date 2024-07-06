@@ -78,7 +78,7 @@ public class frmGrafo extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Prueba");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
