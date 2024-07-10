@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ProyectoFinal;
-
+import Formulario.frmInicio;
 /**
  *
  * @author Hector
@@ -26,7 +26,7 @@ public class AlgoritmoDijkstra {
    private final int tope;
    private final int nodofinal;
    private int Origen;
-
+  private javax.swing.JPanel jPanel;
     public int getSubtope() {
         return subtope;
     }
@@ -70,6 +70,7 @@ public class AlgoritmoDijkstra {
     public void dijkstra(){
         for(int i=0; i< tope; i++){
             nodo[1]= new Nodo();
+           //  jPanel.paint(jPanel.getGraphics());
         }
     
         
