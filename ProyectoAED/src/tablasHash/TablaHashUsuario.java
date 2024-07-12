@@ -4,6 +4,7 @@
  */
 package tablasHash;
 import Clases.Usuario;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Hector
@@ -17,8 +18,8 @@ public class TablaHashUsuario {
     }
     
     
-    public TablaHashUsuario(){
-        
+    public TablaHashUsuario(int size){
+        THUsuario= new Usuario[size];
     }
 
     public Usuario[] getTHUsuario() {
@@ -35,8 +36,12 @@ public class TablaHashUsuario {
         this.size= size;
     }
     public int AritmeticaModular(int clave ){
+        clave = 1000000;
         int aux= (int) clave%size;
-        
+        if(clave >0){
+            return clave;
+            
+        }
         return aux;
     }
    

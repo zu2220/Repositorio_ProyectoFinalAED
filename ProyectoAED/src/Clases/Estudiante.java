@@ -12,6 +12,7 @@ public class Estudiante extends Usuario {
     public Estudiante(String NumOrden) {
         this.NumOrden = NumOrden;
     }
+    
 
     public Estudiante(String NumOrden, String tipoUsuario, String Nombre, String Apellido, String DNI, String Email, String Contrasena) {
         super(tipoUsuario, Nombre, Apellido, DNI, Email, Contrasena);

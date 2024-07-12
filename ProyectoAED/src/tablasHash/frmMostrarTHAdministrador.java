@@ -24,7 +24,7 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
     public frmMostrarTHAdministrador() {
         initComponents();
         int size= Integer.parseInt(JOptionPane.showInputDialog("Ingresar un tamaño para la tabla "));
-        THU.setSize(size);
+        THU= new TablaHashUsuario(size);
         dtm= (DefaultTableModel)tablaUsuario.getModel();
         
     }
@@ -267,7 +267,18 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
         public void ListarDatos(){
             
             LimpiarTabla();
-            
+            Usuario []aux = THU.getTHUsuario();
+            for(int i= 0; i< THU.getSize(); i++){
+                o[0]= aux[i].getId();
+                o[1]= aux[i].getTipoUsuario();
+                o[2]= aux[i].getNombre();
+                o[3]= aux[i].getApellido();
+                o[4]= aux[i].getDNI();
+                o[5]= aux[i].getEmail();
+                o[6]= aux[i].getContrasena();
+                dtm.addRow(o);
+                
+            }
             
         }
         public void LimpiarTabla(){
