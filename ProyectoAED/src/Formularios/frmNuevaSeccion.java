@@ -173,6 +173,8 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jcbSabado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
+
+        txtCodigoSeccion.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.add(txtCodigoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 140, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

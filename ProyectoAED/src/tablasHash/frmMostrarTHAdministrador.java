@@ -58,9 +58,10 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtEliminar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,12 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
         jLabel2.setText("Apellido");
 
         jLabel3.setText("DNI");
+
+        txtApellido.setBackground(new java.awt.Color(255, 255, 102));
+
+        txtDNI.setBackground(new java.awt.Color(255, 255, 102));
+
+        txtNombre.setBackground(new java.awt.Color(255, 255, 102));
 
         btnInsertar.setText("Insertar");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +90,14 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 
         jLabel5.setText("E-mail");
 
+        txtmail.setBackground(new java.awt.Color(255, 255, 102));
+
         jLabel6.setText("Contraseña");
 
+        txtPassword.setBackground(new java.awt.Color(255, 255, 102));
+
+        tablaUsuario.setBackground(new java.awt.Color(102, 255, 255));
+        tablaUsuario.setForeground(new java.awt.Color(255, 255, 102));
         tablaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -96,6 +109,9 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                 "clave", "Nombre", "Apellido", "DNI", "TipoUsuario", "Email", "Con traseña"
             }
         ));
+        tablaUsuario.setGridColor(new java.awt.Color(255, 102, 102));
+        tablaUsuario.setSelectionBackground(new java.awt.Color(255, 255, 102));
+        tablaUsuario.setSelectionForeground(new java.awt.Color(255, 255, 102));
         jScrollPane1.setViewportView(tablaUsuario);
 
         btnListar.setText("Listar");
@@ -109,20 +125,51 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 
         jLabel8.setText("Eliminar");
 
+        txtBuscar.setBackground(new java.awt.Color(255, 255, 102));
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
             }
         });
 
+        txtEliminar.setBackground(new java.awt.Color(255, 255, 102));
+
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnOrdenar.setText("Ordenar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEliminar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -154,24 +201,11 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnListar)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnOrdenar)))
                 .addGap(47, 47, 47))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +243,9 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(btnListar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnListar)
+                            .addComponent(btnOrdenar))))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -218,7 +254,7 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
@@ -243,15 +279,14 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
-        int id=Integer.parseInt(txtPassword.getText());
         String nombre= txtNombre.getText();
         String apellido= txtApellido.getText();
         String DNI= txtDNI.getText();
         String correo= txtmail.getText();
         String password= txtPassword.getText();
-        int clave= THU.AritmeticaModular(id);
+        
         String tipoU= cbxTipoUsuario.getSelectedItem().toString();
-        Usuario auxU= new Usuario(clave, tipoU, nombre, apellido, DNI, correo, password);
+        Usuario auxU= new Usuario( tipoU, nombre, apellido, DNI, correo, password);
         THU.Insertar(auxU);
         
         
@@ -259,17 +294,41 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-     
+        LimpiarTabla();
         ListarDatos();
         
     }//GEN-LAST:event_btnListarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        int indice= Integer.parseInt(txtBuscar.getText());
+        Usuario aux= THU.getUsuarioByIndex(indice);
+        if(aux== null){
+        JOptionPane.showMessageDialog(this, "No se encontró al usuario ");
+        } else{
+             LimpiarTabla();
+        mostrarUsuario(aux);
+        }
+       
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        int indice= Integer.parseInt(txtEliminar.getText());
+        THU.SetNodoByIndex(indice, null);
+        
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
         public void ListarDatos(){
             
-            LimpiarTabla();
             Usuario []aux = THU.getTHUsuario();
             for(int i= 0; i< THU.getSize(); i++){
-                o[0]= aux[i].getId();
+                if(aux[i]!= null){
+                
+                  o[0]= aux[i].getId();
                 o[1]= aux[i].getTipoUsuario();
                 o[2]= aux[i].getNombre();
                 o[3]= aux[i].getApellido();
@@ -277,6 +336,9 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                 o[5]= aux[i].getEmail();
                 o[6]= aux[i].getContrasena();
                 dtm.addRow(o);
+                    
+                }
+              
                 
             }
             
@@ -326,6 +388,7 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JComboBox<String> cbxTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -337,13 +400,25 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable tablaUsuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtDNI;
+    private javax.swing.JTextField txtEliminar;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtmail;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarUsuario(Usuario aux) {
+       
+                  o[0]= aux.getId();
+                o[1]= aux.getTipoUsuario();
+                o[2]= aux.getNombre();
+                o[3]= aux.getApellido();
+                o[4]= aux.getDNI();
+                o[5]= aux.getEmail();
+                o[6]= aux.getContrasena();
+                dtm.addRow(o);
+    }
 }
