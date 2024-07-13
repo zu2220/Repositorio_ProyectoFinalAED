@@ -47,6 +47,7 @@ public class frmMenu extends javax.swing.JFrame {
         btnRegistrarUsuarios = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnInciarSesion = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,9 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnInciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 115, 170, 40));
+
+        jButton1.setText("jButton1");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +154,7 @@ public class frmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInciarSesion;
     private javax.swing.JButton btnRegistrarUsuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
