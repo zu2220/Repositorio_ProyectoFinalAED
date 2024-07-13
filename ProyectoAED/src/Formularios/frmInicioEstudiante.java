@@ -27,8 +27,10 @@ public class frmInicioEstudiante extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnMatricularme.setBackground(new java.awt.Color(255, 153, 51));
         btnMatricularme.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnMatricularme.setText("Matricularme");
         btnMatricularme.addActionListener(new java.awt.event.ActionListener() {
@@ -38,6 +40,7 @@ public class frmInicioEstudiante extends javax.swing.JFrame {
         });
         jPanel1.add(btnMatricularme, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 180, 50));
 
+        btnVerMH.setBackground(new java.awt.Color(255, 153, 51));
         btnVerMH.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVerMH.setText("Ver mi horario");
         btnVerMH.addActionListener(new java.awt.event.ActionListener() {

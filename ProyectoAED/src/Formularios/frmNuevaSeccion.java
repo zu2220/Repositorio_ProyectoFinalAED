@@ -68,6 +68,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nuevas Secciones");
@@ -79,6 +80,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         jLabel3.setText("Curso");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
 
+        cbxCurso.setBackground(new java.awt.Color(255, 255, 102));
         cbxCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCursoActionPerformed(evt);
@@ -89,6 +91,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         jLabel4.setText("Docente");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
+        cbxDocente.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.add(cbxDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 150, -1));
 
         btnCrearSeccion.setText("Crear sección");
@@ -107,13 +110,13 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(btnVerSeccionesCreadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
-        btnRegresar.setText("Regresar");
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen BotonOrdenamiento/downloadbtnBack.png"))); // NOI18N
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 250, 220));
 
         jLabel5.setText("Dias");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
@@ -121,6 +124,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
 
+        jcbLunes.setBackground(new java.awt.Color(255, 51, 51));
         jcbLunes.setText("Lunes");
         jcbLunes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -134,6 +138,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(jcbLunes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
+        jcbMartes.setBackground(new java.awt.Color(255, 204, 153));
         jcbMartes.setText("Martes");
         jcbMartes.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -142,6 +147,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(jcbMartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
+        jcbMiercoles.setBackground(new java.awt.Color(255, 102, 102));
         jcbMiercoles.setText("Miercoles");
         jcbMiercoles.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -150,6 +156,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(jcbMiercoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
+        jcbJueves.setBackground(new java.awt.Color(255, 51, 51));
         jcbJueves.setText("Jueves");
         jcbJueves.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -158,6 +165,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(jcbJueves, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
 
+        jcbViernes.setBackground(new java.awt.Color(255, 51, 51));
         jcbViernes.setText("Viernes");
         jcbViernes.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -166,6 +174,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         });
         jPanel1.add(jcbViernes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
 
+        jcbSabado.setBackground(new java.awt.Color(255, 51, 51));
         jcbSabado.setText("Sabado");
         jcbSabado.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -173,6 +182,8 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jcbSabado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
+
+        txtCodigoSeccion.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.add(txtCodigoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 140, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,7 +198,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
 
         pack();

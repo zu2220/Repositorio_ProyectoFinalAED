@@ -51,6 +51,8 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+
         jLabel1.setText("Nombre");
 
         jLabel2.setText("Apellido");
@@ -59,6 +61,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
 
         jLabel4.setText("Edad");
 
+        tablaDatos.setBackground(new java.awt.Color(255, 255, 102));
         tablaDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -69,6 +72,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
         ));
         jScrollPane1.setViewportView(tablaDatos);
 
+        btnInsertar.setBackground(java.awt.Color.orange);
         btnInsertar.setText("Insercion");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +80,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
             }
         });
 
+        btnInorden.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Yellow"));
         btnInorden.setText("Inorden");
         btnInorden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +88,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
             }
         });
 
+        btnPostOrden.setBackground(new java.awt.Color(255, 204, 51));
         btnPostOrden.setText("PostOrden");
         btnPostOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +96,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
             }
         });
 
+        btnPreOrden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/BotonesImagenesJava/btncrear_1.png"))); // NOI18N
         btnPreOrden.setText("PreOrden");
         btnPreOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +163,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -174,7 +181,7 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
                                 .addComponent(btnPostOrden))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnBorrado))))
                     .addComponent(btnEliminarIzquierda)
                     .addComponent(btnEliminarDerecha))

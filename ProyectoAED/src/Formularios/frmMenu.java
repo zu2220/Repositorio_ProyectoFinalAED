@@ -50,6 +50,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnRegistrarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/BotonesImagenesJava/btnregistrarse.png"))); // NOI18N

@@ -77,6 +77,7 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre:");
@@ -90,11 +91,20 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
 
         jLabel4.setText("Contraseña");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        txtNombre.setBackground(new java.awt.Color(0, 255, 102));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 80, -1));
+
+        txtApellido.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 80, -1));
+
+        txtEmail.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 88, -1));
+
+        txtContrasena.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 88, -1));
 
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/BotonesImagenesJava/btnregistrarse_1.png"))); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +115,8 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
 
         jLabel5.setText("DNI");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtDNI.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 80, -1));
 
         btnLimpiar.setText("Limpiar");
@@ -124,7 +136,7 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 100, -1));
 
         jLabel7.setText("Tipo de usuario");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
@@ -136,8 +148,11 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cbxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
+
+        txtNOrden.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtNOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 70, -1));
 
+        tablaRegistros.setBackground(new java.awt.Color(255, 153, 51));
         tablaRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -146,6 +161,9 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
                 " Tipo de usuario", "Numero de orden", "DNI", "Nombre", "Apellido", "Email", "Contraseña"
             }
         ));
+        tablaRegistros.setGridColor(new java.awt.Color(102, 51, 255));
+        tablaRegistros.setSelectionBackground(new java.awt.Color(153, 153, 255));
+        tablaRegistros.setSelectionForeground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(tablaRegistros);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 760, 300));
@@ -156,8 +174,9 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
                 btnListarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
+        jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 100, -1));
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/BotonesImagenesJava/btneliminar_1.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +187,11 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
 
         jLabel6.setText("Eliminar");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
+
+        txtDeleteAfter.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtDeleteAfter, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 100, -1));
 
+        cbxTipoEli.setBackground(new java.awt.Color(102, 102, 255));
         cbxTipoEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Al inicio", "Al medio", "Al final" }));
         cbxTipoEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,8 +202,11 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
 
         jLabel8.setText("Registrar");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+
+        txtAddAfter.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtAddAfter, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 100, -1));
 
+        cbxTipoIns.setBackground(new java.awt.Color(102, 102, 255));
         cbxTipoIns.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Al inicio", "Al medio", "Al final" }));
         cbxTipoIns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,16 +215,17 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(cbxTipoIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 350, 80, -1));
 
+        btnOrdenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen BotonOrdenamiento/btnOrdenarImagen.jpg"))); // NOI18N
         btnOrdenar.setText("Ordenar");
         btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrdenarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnOrdenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, -1));
+        jPanel1.add(btnOrdenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 120, 30));
 
         cbxOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Burbuja", "Shell", "Insercion", "Merge" }));
-        jPanel1.add(cbxOrdenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 90, -1));
+        jPanel1.add(cbxOrdenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 90, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {

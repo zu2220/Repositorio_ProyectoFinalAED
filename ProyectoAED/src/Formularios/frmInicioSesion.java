@@ -47,16 +47,20 @@ public class frmInicioSesion extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 102));
 
         jLabel1.setText("Correo electrónico:");
 
         jLabel2.setText("Contraseña:");
 
+        txtEmail.setBackground(new java.awt.Color(255, 255, 153));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
+
+        txtContrasena.setBackground(new java.awt.Color(255, 255, 102));
 
         btnIniciarSesion.setText("Iniciar Sesión");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +101,7 @@ public class frmInicioSesion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(jLabel3)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

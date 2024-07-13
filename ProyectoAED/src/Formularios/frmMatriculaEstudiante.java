@@ -54,8 +54,10 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnSeleccionarCurso.setBackground(new java.awt.Color(255, 102, 102));
         btnSeleccionarCurso.setText("Seleccionar Curso");
         btnSeleccionarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         });
         jPanel2.add(btnSeleccionarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
 
+        tablaCursosDisponibles.setBackground(new java.awt.Color(255, 255, 153));
         tablaCursosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -81,6 +84,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 305, 158));
 
+        btnSeleccionarSeccion.setBackground(new java.awt.Color(255, 102, 102));
         btnSeleccionarSeccion.setText("Seleccionar Sección");
         btnSeleccionarSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +97,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         jLabel1.setText("Seleccionar sus cursos");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setText("Ver horario");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +106,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, 133, -1));
 
+        btnSalir.setBackground(new java.awt.Color(255, 102, 102));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +115,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         });
         jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 178, -1));
 
+        btnVerCursosDisponibles.setBackground(new java.awt.Color(255, 102, 102));
         btnVerCursosDisponibles.setText("Ver cursos disponibles");
         btnVerCursosDisponibles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +124,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         });
         jPanel2.add(btnVerCursosDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
+        tablaSecciones.setBackground(new java.awt.Color(255, 255, 102));
         tablaSecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -137,13 +145,13 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();

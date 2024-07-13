@@ -64,6 +64,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nuevos cursos");
@@ -71,11 +72,14 @@ public class frmNuevoCurso extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre del curso");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        txtCursoNuevo.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.add(txtCursoNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 168, 30));
 
         jLabel3.setText("Docente(s) a cargo");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
+        cbxDocenteACargo.setBackground(new java.awt.Color(255, 204, 102));
         cbxDocenteACargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDocenteACargoActionPerformed(evt);
@@ -83,6 +87,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         });
         jPanel1.add(cbxDocenteACargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 168, -1));
 
+        btnCrearCurso.setBackground(new java.awt.Color(153, 153, 255));
         btnCrearCurso.setText("Crear curso");
         btnCrearCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +157,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
-        jPanel1.add(panelMostrarCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 750, 480));
+        jPanel1.add(panelMostrarCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 750, 480));
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +167,7 @@ public class frmNuevoCurso extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
+        btnAgregarDocente.setBackground(new java.awt.Color(153, 153, 255));
         btnAgregarDocente.setText("Agregar Docente");
         btnAgregarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
