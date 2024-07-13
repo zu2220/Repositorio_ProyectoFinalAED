@@ -66,6 +66,7 @@ public class frmRegistroDocente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tblHash.setBackground(new java.awt.Color(255, 153, 51));
         tblHash.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,6 +88,15 @@ public class frmRegistroDocente extends javax.swing.JFrame {
 
         jLabel4.setText("DNI");
 
+        txtCodigo.setBackground(new java.awt.Color(255, 255, 102));
+
+        txtNombre.setBackground(new java.awt.Color(255, 255, 102));
+
+        txtApellido.setBackground(new java.awt.Color(255, 255, 102));
+
+        txtDNI.setBackground(new java.awt.Color(255, 255, 102));
+
+        btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +104,7 @@ public class frmRegistroDocente extends javax.swing.JFrame {
             }
         });
 
+        btnSalir.setBackground(new java.awt.Color(102, 102, 255));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +112,7 @@ public class frmRegistroDocente extends javax.swing.JFrame {
             }
         });
 
+        btnListar.setBackground(new java.awt.Color(51, 51, 255));
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

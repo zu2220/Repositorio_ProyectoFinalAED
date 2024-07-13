@@ -152,6 +152,7 @@ public class frmRegistroUsuario extends javax.swing.JFrame {
         txtNOrden.setBackground(new java.awt.Color(102, 255, 102));
         jPanel1.add(txtNOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 70, -1));
 
+        tablaRegistros.setBackground(new java.awt.Color(255, 153, 51));
         tablaRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
