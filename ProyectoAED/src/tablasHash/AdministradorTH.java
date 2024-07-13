@@ -18,6 +18,13 @@ public class AdministradorTH {
         this.clave = clave;
     }
 
+    public AdministradorTH(String nombre, String apellido, int DNI) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.DNI = DNI;
+    }
+    
+
     public String getNombre() {
         return nombre;
     }

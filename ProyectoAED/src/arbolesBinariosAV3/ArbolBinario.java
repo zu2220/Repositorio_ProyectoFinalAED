@@ -25,9 +25,9 @@ public class ArbolBinario {
             raiz=aux;
         }else{
             Nodo tem=aux;
-            Nodo padre;
+            Nodo padre=null;
             
-            while(true){
+            while(tem!=null){
                 padre=tem;
                 if(dato.getId()<tem.getDato().getId()){
                     tem=tem.getIzquierdo();
@@ -118,15 +118,17 @@ public class ArbolBinario {
         while(raiz.getDato().getId()!=id){
             if(id<tem.getDato().getId())
                 tem=tem.getIzquierdo();
-            else
+            else{
                 tem=tem.getDerecho();
-            
+            }
             if(tem==null)
                 return null;
         }
         return tem;
     }
     
-    
+    public void eliminar(int id){
+        
+    }
     
 }

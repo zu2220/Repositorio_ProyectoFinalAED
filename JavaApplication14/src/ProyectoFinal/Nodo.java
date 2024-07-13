@@ -11,6 +11,7 @@ package ProyectoFinal;
 public class Nodo {
     //No le cambiaras el nombre a Nodo Estudiante
     //Ya que evitaras confusiones
+    private ListaNodos nodosAdyacentes;
     
     
 }

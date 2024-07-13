@@ -39,22 +39,47 @@ public class TablaHashAdministrador {
             THAdministrador[clave]=admin;
             THAdministrador[clave].setClave(clave);
         }else{
-            int i=clave+1;
-            while(true){
-                if(THAdministrador[i]==null){
-                    THAdministrador[i]=admin;
-                    THAdministrador[i].setClave(i);
-                    return;
-                }
-                if(i==size && admin.getClave()==0){
-                    JOptionPane.showMessageDialog(null,"Tabla llena");
-                    return;
-                }
-                i++;
+            //creamos un array que almacena las opciones que se mostrarán en el JOptionPane
+            String[] opciones={"Seleccionar opción","Exploracion cuadrática","Exploracion lineal"};
+            
+            int i=JOptionPane.showOptionDialog(
+                    null,
+                    "Elija un método para evitar la colisión",
+                    "Se detectó una colisión",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    opciones,opciones[0]);
+            };
+            
+            switch(i){
+                case 1:
+                    //Exploración cuadrática
+                    int aux=clave;
+                    int i=1;
+                    while(THAdministrador[aux]!=null){
+                        aux+=Math.pow(i, 2);
+                        if(aux>THAdministrador.length)
+                        
+                    }
+                    
             }
             
-            
-        }
+        
+    }
+    public AdministradorTH[] tablaHValores(){
+        return this.THAdministrador;
+    }
+    //metodos de dispersión
+        //Aritmetica modular
+    //metodos para evitar colisión
+
+    public int exploracion_cuadratica(int indice) {
+            int aux=!;
+            int aux2=indice+aux;
+            while(THAdministrador[indice]!=null){
+                THAdministrador[indice+aux*aux]
+            }
     }
     
 }
