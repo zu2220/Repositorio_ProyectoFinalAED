@@ -1,7 +1,7 @@
 
 package arbolesBinariosAV3;
 
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Usuario;
 
 
 public class Nodo {

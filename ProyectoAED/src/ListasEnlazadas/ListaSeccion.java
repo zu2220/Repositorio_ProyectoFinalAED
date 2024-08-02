@@ -1,7 +1,7 @@
 
 package ListasEnlazadas;
 
-import Clases.Seccion;
+import ClasesProyectoFinalAED.Seccion;
 
 
 public class ListaSeccion {
@@ -17,7 +17,7 @@ public class ListaSeccion {
             aux=aux.getSig();
         }
     }
-    public void insertarAlFinal(Seccion dato){
+    public void insertarAlInicio(Seccion dato){
         if(inicio==null){
             inicio=fin=new NodoSeccion(dato);
         }else{
@@ -77,4 +77,5 @@ public class ListaSeccion {
     public Seccion buscarSeccion(String codigo){
         return this.getNodoByIndex(0).buscarNodo(codigo);
     }
+    
 }

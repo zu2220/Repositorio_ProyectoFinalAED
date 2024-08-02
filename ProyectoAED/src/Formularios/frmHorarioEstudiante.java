@@ -4,7 +4,7 @@
  */
 package Formularios;
 
-import Clases.Estudiante;
+import ClasesProyectoFinalAED.Estudiante;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.NodoSeccion;
 import javax.swing.table.DefaultTableModel;
@@ -25,8 +25,8 @@ public class frmHorarioEstudiante extends javax.swing.JFrame {
         initComponents();
         dtm=(DefaultTableModel)horarioEstudiante.getModel();
         est=(Estudiante)IS.us;
-        totalSecciones=est.getSeccionesE().getSize();
-        seccionesEstudiante=est.getSeccionesE();
+        totalSecciones=est.getSecciones().getSize();
+        seccionesEstudiante=est.getSecciones();
         o=new Object[totalSecciones];
         mostrarHorario();
         

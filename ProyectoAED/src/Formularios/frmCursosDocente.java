@@ -1,7 +1,7 @@
 package Formularios;
 
-import Clases.Docente;
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Docente;
+import ClasesProyectoFinalAED.Usuario;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.table.DefaultTableModel;

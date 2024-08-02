@@ -1,6 +1,6 @@
 package Formularios;
 
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Usuario;
 import ListasEnlazadas.ListaUsuario;
         
 public class frmInicioDocente extends javax.swing.JFrame {

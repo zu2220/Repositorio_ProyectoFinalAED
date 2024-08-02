@@ -1,7 +1,7 @@
 
 package ListasEnlazadas;
 
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Usuario;
 import Interfaces.IListaEnlazada;
 
 

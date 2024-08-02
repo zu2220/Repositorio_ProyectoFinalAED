@@ -1,5 +1,5 @@
 
-package Clases;
+package ClasesProyectoFinalAED;
 
 import ListasEnlazadas.ListaDocente;
 

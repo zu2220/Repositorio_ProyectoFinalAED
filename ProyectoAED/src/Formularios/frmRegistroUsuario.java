@@ -1,9 +1,9 @@
 package Formularios;
 
-import Clases.Administrador;
-import Clases.Docente;
-import Clases.Estudiante;
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Administrador;
+import ClasesProyectoFinalAED.Docente;
+import ClasesProyectoFinalAED.Estudiante;
+import ClasesProyectoFinalAED.Usuario;
 import ListasEnlazadas.ListaDocente;
 import ListasEnlazadas.ListaEstudiante;
 import ListasEnlazadas.ListaUsuario;

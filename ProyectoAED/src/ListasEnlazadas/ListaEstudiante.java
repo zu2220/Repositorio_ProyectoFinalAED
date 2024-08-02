@@ -1,7 +1,7 @@
 
 package ListasEnlazadas;
 
-import Clases.Estudiante;
+import ClasesProyectoFinalAED.Estudiante;
 
 public class ListaEstudiante {
     

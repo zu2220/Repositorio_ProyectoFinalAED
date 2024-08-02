@@ -274,8 +274,127 @@ public class ArbolEstudiante
         }
         
         
+       /* public void Eliminar_Nodo(int Numero) {
+        this.Raiz = this.Eliminar(this.Raiz, Numero);
+    }
+
+    private Nodo Eliminar(Nodo Raiz, int Numero) {
+        if (Raiz == null) {
+            return Raiz;
+        }
+        if (Numero > Raiz.getNumero()) {
+            Raiz.setHijo_Derecho(this.Eliminar(Raiz.getHijo_Derecho(), Numero));
+        } else if (Numero < Raiz.getNumero()) {
+            Raiz.setHijo_Izquierdo(this.Eliminar(Raiz.getHijo_Izquierdo(), Numero));
+        } else {
+            if (Raiz.getHijo_Izquierdo() == null && Raiz.getHijo_Derecho() == null) {
+                Raiz = null;
+            } else if (Raiz.getHijo_Derecho() != null) {
+                Raiz.setNumero(this.Sucesor(Raiz));
+                Raiz.setHijo_Derecho(this.Eliminar(Raiz.getHijo_Derecho(), Raiz.getNumero()));
+            } else {
+                Raiz.setNumero(this.Predecesor(Raiz));
+                Raiz.setHijo_Izquierdo(this.Eliminar(Raiz.getHijo_Izquierdo(), Raiz.getNumero()));
+            }
+        }
+        return Raiz;
+    }
+
+    private int Sucesor(Nodo Raiz) {
+        Raiz = Raiz.getHijo_Derecho();
+        while (Raiz.getHijo_Izquierdo() != null) {
+            Raiz = Raiz.getHijo_Izquierdo();
+        }
+        return Raiz.getNumero();
+    }
+
+    private int Predecesor(Nodo Raiz) {
+        Raiz = Raiz.getHijo_Izquierdo();
+        while (Raiz.getHijo_Derecho() != null) {
+            Raiz = Raiz.getHijo_Derecho();
+        }
+        return Raiz.getNumero();
+    }*/
+        //El metodo Eliminar de tipo NodoArbolEstudianteAB es eliminar izquierda:
+        public NodoArbolEstudianteAB Eliminar(NodoArbolEstudianteAB raiz, EstudianteAB Numero){
+            if(raiz == null){
+                return raiz;
+            }
+            if(Numero.getDNI() > raiz.getDato().getDNI()){
+                raiz.setHijoder(this.Eliminar(raiz.getHijoizq(), Numero));
+            } else if(Numero.getDNI()< raiz.getDato().getDNI()){
+                raiz.setHijoder(this.Eliminar(raiz.getHijoder(), Numero));
+            } else{
+                if(raiz.getHijoizq()== null && raiz.getHijoder()== null){
+                    raiz= null;
+                
+                } else if (raiz.getHijoder()!= null){
+                    int Sucesor = 2568;
+                    raiz.getDato().setDNI(Sucesor);
+                    raiz.setHijoder(this.Eliminar(raiz.getHijoder(), raiz.getDato()));
+                } else{
+                    raiz.setDato(this.Predesor(Numero, raiz));
+                    raiz.setHijoizq(this.Eliminar(raiz, Numero));
+                }
+                
+            }
+            
+            
+        
+        return raiz;
         
         
+        }
+    public void EliminarNodo(EstudianteAB numero){
+        this.raiz=this.Eliminar(raiz, numero);
+    
+    }
+
+    public int Sucesor(int Sucesor, NodoArbolEstudianteAB raiz){
+        raiz= raiz.getHijoder();
+        while(raiz.getHijoizq()!=null){
+            raiz= raiz.getHijoder();
         
+        }
+        
+        return raiz.getDato().getDNI();
+    }
+    public EstudianteAB Predesor(EstudianteAB Predesor, NodoArbolEstudianteAB raiz){
+    
+        while(raiz.getHijoizq()!= null){
+            raiz= raiz.getHijoder();
+        
+        }
+        return raiz.getDato();
+    }
+    //Este es el metodo para eliminar por derecho
+    public NodoArbolEstudianteAB Eliminar2(NodoArbolEstudianteAB raiz, EstudianteAB Numero){
+             if(raiz == null){
+                return raiz;
+            }
+            if(Numero.getDNI() > raiz.getDato().getDNI()){
+               raiz.setHijoizq(this.Eliminar(raiz.getHijoder(), Numero));
+            } else if(Numero.getDNI()< raiz.getDato().getDNI()){
+                raiz.setHijoizq(this.Eliminar(raiz.getHijoizq(), Numero));
+            } else{
+                if(raiz.getHijoder()== null && raiz.getHijoder()== null){
+                    raiz= null;
+                
+                } else if (raiz.getHijoizq()!= null){
+                    int Sucesor = 2568;
+                    raiz.getDato().setDNI(Sucesor);
+                    raiz.setHijoizq(this.Eliminar(raiz.getHijoizq(), raiz.getDato()));
+                } else{
+                    raiz.setDato(this.Predesor(Numero, raiz));
+                    raiz.setHijoder(this.Eliminar(raiz, Numero));
+                }
+                
+            }
+        
+        
+    
+    
+        return raiz;
+    }
     
 }

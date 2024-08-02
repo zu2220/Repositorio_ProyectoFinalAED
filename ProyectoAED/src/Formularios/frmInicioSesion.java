@@ -5,7 +5,7 @@
 package Formularios;
 
 
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Usuario;
 import ListasEnlazadas.ListaUsuario;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;

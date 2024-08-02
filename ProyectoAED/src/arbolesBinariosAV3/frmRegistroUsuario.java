@@ -1,7 +1,7 @@
 package arbolesBinariosAV3;
 import Formularios.*;
-import Clases.Estudiante;
-import Clases.Usuario;
+import ClasesProyectoFinalAED.Estudiante;
+import ClasesProyectoFinalAED.Usuario;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

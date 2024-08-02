@@ -1,15 +1,26 @@
 
-package Clases;
+package ClasesProyectoFinalAED;
+
+import javax.swing.JOptionPane;
 
 
 
 
 public class Estudiante extends Usuario {
     private String NumOrden;
+    private Seccion Secciones;
+
+    public Seccion getSecciones() {
+        return Secciones;
+    }
+
+    public void setSecciones(Seccion Secciones) {
+        this.Secciones = Secciones;
+    }
     
     
 
-    public Estudiante(String NumOrden) {
+    public Estudiante(String NumOrden, String TiUs, String nombreU, String apellidoU, String dniU, String emailU, String contraU) {
         this.NumOrden = NumOrden;
     }
     
@@ -32,6 +43,10 @@ public class Estudiante extends Usuario {
 
     public void setNumOrden(String NumOrden) {
         this.NumOrden = NumOrden;
+    }
+
+    public void insertarSecciones(Seccion auxSeccion) {
+          JOptionPane.showMessageDialog(null, "Si se escribió en la seccion");
     }
 
     

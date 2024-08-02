@@ -5,7 +5,7 @@
 package formulariosAV3;
 
 import arbolesBinariosAV3.ArbolBinario;
-import Clases.*;
+import ListasEnlazadas.ListaDocente;
 
 /**
  *
@@ -14,6 +14,7 @@ import Clases.*;
 public class frmMenu extends javax.swing.JFrame {
 
     ArbolBinario ab;
+    ListaDocente LD;
     public frmMenu() {
         initComponents();
         ab=new ArbolBinario();

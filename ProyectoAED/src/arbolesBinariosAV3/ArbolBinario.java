@@ -1,7 +1,8 @@
 
 package arbolesBinariosAV3;
 
-import Clases.*;
+import ClasesProyectoFinalAED.Usuario;
+import ClasesProyectoFinalAED.Estudiante;
 import javax.swing.table.DefaultTableModel;
 
 

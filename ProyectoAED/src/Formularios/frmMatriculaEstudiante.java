@@ -1,7 +1,7 @@
 package Formularios;
 
-import Clases.Estudiante;
-import Clases.Seccion;
+import ClasesProyectoFinalAED.Estudiante;
+import ClasesProyectoFinalAED.Seccion;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import javax.swing.JOptionPane;
@@ -199,6 +199,7 @@ public class frmMatriculaEstudiante extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error. No se pudo inscribir en la seccion");
             }else{
                 est.insertarSecciones(auxSeccion);
+                
             }
         }
     }//GEN-LAST:event_btnSeleccionarSeccionActionPerformed

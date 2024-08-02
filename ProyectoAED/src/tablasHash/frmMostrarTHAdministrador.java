@@ -1,40 +1,17 @@
 
 package tablasHash;
 
-<<<<<<< HEAD
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import ClasesProyectoFinalAED.Usuario;
+
 
 
 public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 
     DefaultTableModel dtm;
-    TablaHashAdministrador th;
-    Object o[]=new Object[4];
-    public frmMostrarTHAdministrador() {
-        initComponents();
-        dtm=(DefaultTableModel)tablaDatos.getModel();
-        
-        txtNombre.setEnabled(false);
-        txtApellido.setEnabled(false);
-        txtDNI.setEnabled(false);
-        btnInsertar.setEnabled(false);
-=======
-import Clases.Usuario;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
-/**
- *
- * @author oscar
- */
-public class frmMostrarTHAdministrador extends javax.swing.JFrame {
-
-    /**
-     * Creates new form frmMostrarTHAdministrador
-     */
     TablaHashUsuario THU;
-    DefaultTableModel dtm;
     Object o[]= new Object[7];
     
     public frmMostrarTHAdministrador() {
@@ -42,7 +19,6 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
         int size= Integer.parseInt(JOptionPane.showInputDialog("Ingresar un tamaño para la tabla "));
         THU= new TablaHashUsuario(size);
         dtm= (DefaultTableModel)tablaUsuario.getModel();
->>>>>>> 4a13d97b76a232f1db25e02a6f88105535336b5a
         
     }
 
@@ -403,46 +379,19 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        // TODO add your handling code here:
-        AdministradorTH admin=new AdministradorTH(txtNombre.getText(),txtApellido.getText(),Integer.parseInt(txtDNI.getText()));
-        th.insertar(admin);
-    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {                                            
+
+    }                                           
 
     private void btnSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSizeActionPerformed
-        // TODO add your handling code here:
-        
-        //1ro vamos a verificar que el tamaño que se le desea asignar a la tabla es un numero primo
-        //Para ello, utilizaremos una funcion que compruebe si lo ingresado es un num primo
-        
-        boolean flag=es_num_prim(Integer.parseInt(txtSize.getText()));
-        
-        if(flag){
-            th=new TablaHashAdministrador(Integer.parseInt(txtSize.getText()));
-            txtNombre.setEnabled(true);
-            txtApellido.setEnabled(true);
-            txtDNI.setEnabled(true);
-            btnInsertar.setEnabled(true);
-        }else{
-            JOptionPane.showMessageDialog(this,"El tamaño de la tabla debe ser un numero primo. Se procede a asignar un tamaño a la tabla");
-            int nprimo=num_primo_prox(Integer.parseInt(txtSize.getText()));
-            th=new TablaHashAdministrador(nprimo);
-            
-        }
-        
-       
+
     }//GEN-LAST:event_btnSizeActionPerformed
 
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
-        AdministradorTH[] x=th.getTHAdministrador();
-        for(int i=0; i<th.getTHAdministrador().length;i++){
-            dtm.addRow(x);
-        }
-    }//GEN-LAST:event_btnListarActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {                                          
 
-=======
+    }                                         
+
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
@@ -518,7 +467,6 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
             dtm.removeRow(i-1);
         }
         }
->>>>>>> 4a13d97b76a232f1db25e02a6f88105535336b5a
     /**
      * @param args the command line arguments
      */
@@ -600,32 +548,7 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
 >>>>>>> 4a13d97b76a232f1db25e02a6f88105535336b5a
     // End of variables declaration//GEN-END:variables
 
-<<<<<<< HEAD
-    public boolean es_num_prim(int num) {
-        //comprobamos si el numero es primo
-        if (num < 2) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return false; // Si es divisible por 'i', no es primo
-            }
-        }
-        
-        return true;
-        
-    }
 
-    private int num_primo_prox(int aux) {
-        int num = aux + 1;
-        
-        // Continuar buscando hasta encontrar un número primo
-        while (es_num_prim(num)==false) {
-            num++;
-        }
-        
-        return num;
-=======
     private void mostrarUsuario(Usuario aux) {
        
                   o[0]= aux.getId();
@@ -636,6 +559,6 @@ public class frmMostrarTHAdministrador extends javax.swing.JFrame {
                 o[5]= aux.getEmail();
                 o[6]= aux.getContrasena();
                 dtm.addRow(o);
->>>>>>> 41e2344e80a4b01918de550a2feb44392605c724
+
     }
 }

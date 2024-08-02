@@ -4,9 +4,9 @@
  */
 package Formularios;
 
-import Clases.Seccion;
-import Clases.Curso;
-import Clases.Docente;
+import ClasesProyectoFinalAED.Seccion;
+import ClasesProyectoFinalAED.Curso;
+import ClasesProyectoFinalAED.Docente;
 import ListasEnlazadas.ListaSeccion;
 import ListasEnlazadas.ListaCurso;
 import ListasEnlazadas.ListaDocente;
@@ -227,7 +227,7 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
                 for(int i=0;i<7;i++){
                     nuevaSeccion.insertarHDia(auxSeccion.getHorario(i), i);
                 }
-                LA.insertarAlFinal(nuevaSeccion);
+                LA.insertarAlInicio(nuevaSeccion);
 
             }
         }
@@ -293,15 +293,6 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jcbMiercolesStateChanged
 
-    private void jcbJuevesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbJuevesStateChanged
-        // TODO add your handling code here:
-        if(jcbLunes.isSelected()){
-            String jueves=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
-            auxSeccion.insertarHDia(jueves, 3);
-            JOptionPane.showMessageDialog(this, jueves);
-        }
-    }//GEN-LAST:event_jcbJuevesStateChanged
-
     private void jcbViernesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbViernesStateChanged
         // TODO add your handling code here:
         if(jcbViernes.isSelected()){
@@ -319,6 +310,15 @@ public class frmNuevaSeccion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, sabado);
         }
     }//GEN-LAST:event_jcbSabadoStateChanged
+
+    private void jcbJuevesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jcbJuevesStateChanged
+        // TODO add your handling code here:
+        if(jcbLunes.isSelected()){
+            String jueves=JOptionPane.showInputDialog("Introduce la hora de inicio y la hora de término de la clase");
+            auxSeccion.insertarHDia(jueves, 3);
+            JOptionPane.showMessageDialog(this, jueves);
+        }
+    }//GEN-LAST:event_jcbJuevesStateChanged
 
     /**
      * @param args the command line arguments

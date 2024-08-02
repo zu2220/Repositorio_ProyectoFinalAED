@@ -1,5 +1,5 @@
 
-package Clases;
+package ClasesProyectoFinalAED;
 
 import ListasEnlazadas.ListaCurso;
 import ListasEnlazadas.ListaSeccion;
@@ -34,7 +34,7 @@ public class Docente extends Usuario {
     }
     
     public void agregarSeccion(Seccion seccion){
-        this.secciones.insertarAlFinal(seccion);
+        this.secciones.insertarAlInicio(seccion);
     }
     
 }

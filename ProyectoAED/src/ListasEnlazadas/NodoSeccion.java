@@ -1,7 +1,7 @@
 
 package ListasEnlazadas;
 
-import Clases.Seccion;
+import ClasesProyectoFinalAED.Seccion;
 
 
 public class NodoSeccion {

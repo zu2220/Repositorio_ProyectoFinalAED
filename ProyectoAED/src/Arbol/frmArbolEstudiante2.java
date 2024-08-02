@@ -1,6 +1,8 @@
 
 package Arbol;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -8,10 +10,12 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class frmArbolEstudiante2 extends javax.swing.JFrame{
-
+    EstudianteAB est= new EstudianteAB();
     ArbolEstudiante AB ;
     DefaultTableModel dtmTablaDatos;
     Object o[]= new Object[4];
+    NodoArbolEstudianteAB n= new NodoArbolEstudianteAB();
+    private NodoArbolEstudianteAB raiz;
     
     public frmArbolEstudiante2()
     {
@@ -346,8 +350,29 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
     }//GEN-LAST:event_btnPreOrdenActionPerformed
 
     private void btnEliminarIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIzquierdaActionPerformed
-        // TODO add your handling code here:
-        int datoaeliminar;
+      int colummnaSeleccionada= tablaDatos.getColumnCount();
+        NodoArbolEstudianteAB aux= new NodoArbolEstudianteAB();
+        NodoArbolEstudianteAB n= (NodoArbolEstudianteAB) tablaDatos.getValueAt(50, colummnaSeleccionada);
+         aux= aux.Eliminar(raiz, est);
+        // Obtener la fila seleccionada en la tabla
+    int filaSeleccionada = tablaDatos.getSelectedRow();
+    if (filaSeleccionada!= -1) {
+        // Obtener el objeto EstudianteAB de la fila seleccionada
+        EstudianteAB estudiante = (EstudianteAB) tablaDatos.getValueAt(filaSeleccionada, 50);
+        // Eliminar el nodo izquierdo del árbol binario
+        n=  n.Eliminar(n, estudiante);
+        // Actualizar la tabla con los nuevos datos
+        tablaDatos.setModel(new DefaultTableModel());
+        // Llenar la tabla con los nuevos datos del árbol binario
+        // (suponiendo que tienes un método que devuelve una lista de EstudianteAB)
+        EstudianteAB[] estudiantes = new EstudianteAB[50];
+        for (EstudianteAB est : estudiantes) {
+            tablaDatos.addRowSelectionInterval(0, 50);
+             o[2]= estudiante.getDNI();
+        }
+        JOptionPane.showMessageDialog(this, "No se pudo Eliminar ni reemplazar");
+    }
+        
     }//GEN-LAST:event_btnEliminarIzquierdaActionPerformed
 
     private void btnEliminarDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDerechaActionPerformed
@@ -434,4 +459,8 @@ public class frmArbolEstudiante2 extends javax.swing.JFrame{
             dtmTablaDatos.removeRow(0);
         }
     }
+
+  
+    
+    
 }

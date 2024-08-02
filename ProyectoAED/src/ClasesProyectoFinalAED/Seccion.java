@@ -1,5 +1,5 @@
 
-package Clases;
+package ClasesProyectoFinalAED;
 
 import ListasEnlazadas.ListaEstudiante;
 
@@ -8,7 +8,17 @@ public class Seccion {
     private String codigoSeccion;
     private Curso curso;
     private Docente docenteACargo;
+    private int Size;
 
+    public int getSize() {
+        return Size;
+    }
+
+    public void setSize(int Size) {
+        this.Size = Size;
+    }
+    
+    
     private String[] horario=new String[6];
 
     private ListaEstudiante LE;
